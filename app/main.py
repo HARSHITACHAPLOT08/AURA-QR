@@ -120,16 +120,24 @@ def random_transaction(src="stream"):
 
 
 # ── Backend API Integration ─────────────────────────────────
-# No hardcoded URL to avoid expired ngrok tunnels. Configure via Sidebar.
+# No hardcoded URL to avoid expired ngrok tunnels. Configure via Sidebar or Streamlit Secrets.
 NGROK_DEFAULT = "https://hattie-unbrushed-criminologically.ngrok-free.dev"
+# Default headers to skip the ngrok browser warning interceptor
+NGROK_HEADERS = {"ngrok-skip-browser-warning": "69420"}
 
 def fetch_transactions(base_url: str | None = None):
     """Fetch latest transactions from FastAPI backend.
 
     Returns a list of transaction dicts, or None if the backend is unreachable.
     """
-    # Use session state configured URL as priority
-    base = base_url or st.session_state.get('backend_url') or NGROK_DEFAULT
+    # Use Streamlit Secrets if available, then session state, then default
+    secret_url = None
+    try:
+        secret_url = st.secrets.get("AURA_BACKEND_URL")
+    except Exception:
+        pass
+
+    base = base_url or secret_url or st.session_state.get('backend_url') or NGROK_DEFAULT
     if not base or base == "":
         return None
 
@@ -148,7 +156,7 @@ def fetch_transactions(base_url: str | None = None):
     for ep in endpoints:
         url = base.rstrip('/') + ep
         try:
-            resp = sess.get(url, timeout=2.0)
+            resp = sess.get(url, timeout=2.0, headers=NGROK_HEADERS)
             resp.raise_for_status()
             try:
                 data = resp.json()
@@ -312,7 +320,7 @@ with st.sidebar:
     is_online = False
     if st.session_state['backend_url']:
         try:
-            h_resp = requests.get(f"{st.session_state['backend_url']}/health", timeout=1.5)
+            h_resp = requests.get(f"{st.session_state['backend_url']}/health", timeout=1.5, headers=NGROK_HEADERS)
             if h_resp.status_code == 200:
                 is_online = True
                 st.markdown('<div style="background:rgba(16,185,129,0.1); border:1px solid #10b981; color:#10b981; border-radius:6px; padding:4px 10px; font-size:0.75rem; font-weight:800; text-align:center;">🟢 API CONNECTED</div>', unsafe_allow_html=True)
