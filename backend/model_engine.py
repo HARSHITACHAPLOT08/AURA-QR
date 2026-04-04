@@ -108,4 +108,5 @@ def predict(transaction: dict) -> dict:
         "top_features":     json.dumps(top_dict),
         "timestamp":        datetime.utcnow(),
         "source":           transaction.get("source", "manual"),
+        "merchant":         transaction.get("merchant"),
     }

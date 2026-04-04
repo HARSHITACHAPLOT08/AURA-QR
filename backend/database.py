@@ -54,7 +54,8 @@ class Transaction(Base):
     top_features      = Column(Text)      # JSON string
 
     timestamp = Column(DateTime, default=datetime.utcnow)
-    source    = Column(String, default="manual")  # manual | stream
+    source    = Column(String, default="manual")  # manual | stream | mobile
+    merchant  = Column(String, nullable=True)     # For mobile-sent receiver names
 
 
 class KYCSubmission(Base):

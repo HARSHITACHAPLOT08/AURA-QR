@@ -303,7 +303,8 @@ def render_qr_scanner():
     with col1:
         uploaded = st.file_uploader(
             'Upload QR image', type=['png', 'jpg', 'jpeg'],
-            accept_multiple_files=False
+            accept_multiple_files=False,
+            key="qr_file_uploader_widget"
         )
         if uploaded is not None:
             try:
@@ -314,7 +315,7 @@ def render_qr_scanner():
 
         # Camera input (may not be supported in all environments)
         try:
-            cam = st.camera_input('Or scan with your camera')
+            cam = st.camera_input('Or scan with your camera', key="qr_camera_input_widget")
             if cam is not None and img is None:
                 try:
                     pil2 = Image.open(io.BytesIO(cam.read())).convert('RGB')
@@ -482,7 +483,7 @@ def render_qr_scanner():
                 )
 
             # ── Optional backend analysis ─────────────────────────────────
-            if st.checkbox('Also analyze with backend ML model (optional)', key=f'backend_{i}'):
+            if st.checkbox('Also analyze with backend ML model (optional)', key=f'qr_backend_check_{i}'):
                 try:
                     import requests
                     payload = {

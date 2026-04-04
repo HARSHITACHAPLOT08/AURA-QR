@@ -121,7 +121,7 @@ def random_transaction(src="stream"):
 
 # ── Backend API Integration ─────────────────────────────────
 # No hardcoded URL to avoid expired ngrok tunnels. Configure via Sidebar.
-NGROK_DEFAULT = ""
+NGROK_DEFAULT = "https://hattie-unbrushed-criminologically.ngrok-free.dev"
 
 def fetch_transactions(base_url: str | None = None):
     """Fetch latest transactions from FastAPI backend.
@@ -150,7 +150,16 @@ def fetch_transactions(base_url: str | None = None):
         try:
             resp = sess.get(url, timeout=2.0)
             resp.raise_for_status()
-            data = resp.json()
+            try:
+                data = resp.json()
+            except Exception:
+                # If JSON fails, it might be the ngrok browser warning (HTML)
+                if "<html" in resp.text.lower():
+                    st.session_state['_ngrok_warning'] = True
+                txs = None
+                continue
+
+            st.session_state['_ngrok_warning'] = False
             if isinstance(data, list):
                 txs = data
             elif isinstance(data, dict) and ("transactions" in data or "items" in data):
@@ -204,6 +213,7 @@ def fetch_transactions(base_url: str | None = None):
                 tt["dist_home_km"] = tr.get("dist_home_km") or tr.get("distHomeKm") or 0.0
                 tt["card_age_days"] = tr.get("card_age_days") or tr.get("cardAgeDays") or None
                 tt["is_online"] = tr.get("is_online") if "is_online" in tr else False
+                tt["merchant"] = tr.get("merchant") or t.get("merchant")
 
                 # result fields
                 tt["fraud_probability"] = res.get("risk_score") if res.get("risk_score") is not None else res.get("fraud_probability", res.get("probability", 0.0))
@@ -234,6 +244,8 @@ def fetch_transactions(base_url: str | None = None):
                 tt.setdefault("is_fraud", bool(tt.get("is_fraud", tt.get("fraud", False))))
             if "risk_level" not in tt:
                 tt.setdefault("risk_level", tt.get("risk_level", "Low"))
+            if "merchant" not in tt:
+                tt["merchant"] = tt.get("merchant")
 
             norm.append(tt)
         return norm
@@ -285,7 +297,7 @@ with st.sidebar:
     # --- Configurable Backend URL Section ---
     st.markdown('<div style="font-size:0.85rem; font-weight:700; color:#E2E8F0; margin-top:20px; margin-bottom:8px;">🔧 Backend Configuration</div>', unsafe_allow_html=True)
     
-    input_url = st.sidebar.text_input(
+    input_url = st.text_input(
         "API Endpoint URL",
         value=st.session_state.get('backend_url', NGROK_DEFAULT),
         placeholder="e.g. https://...ngrok-free.dev",
@@ -296,19 +308,22 @@ with st.sidebar:
     # Store in session state
     st.session_state['backend_url'] = input_url.rstrip("/")
     
-    # Connection status indicator
+    # --- Real-time Connectivity Check ---
+    is_online = False
     if st.session_state['backend_url']:
         try:
-            h_resp = requests.get(f"{st.session_state['backend_url']}/health", timeout=2)
+            h_resp = requests.get(f"{st.session_state['backend_url']}/health", timeout=1.5)
             if h_resp.status_code == 200:
+                is_online = True
                 st.markdown('<div style="background:rgba(16,185,129,0.1); border:1px solid #10b981; color:#10b981; border-radius:6px; padding:4px 10px; font-size:0.75rem; font-weight:800; text-align:center;">🟢 API CONNECTED</div>', unsafe_allow_html=True)
             else:
-                st.markdown('<div style="background:rgba(239,68,68,0.1); border:1px solid #ef4444; color:#ef4444; border-radius:6px; padding:4px 10px; font-size:0.75rem; font-weight:800; text-align:center;">🔴 API ERR (404)</div>', unsafe_allow_html=True)
+                st.markdown('<div style="background:rgba(239,68,68,0.1); border:1px solid #ef4444; color:#ef4444; border-radius:6px; padding:4px 10px; font-size:0.75rem; font-weight:800; text-align:center;">🔴 Backend Unreachable</div>', unsafe_allow_html=True)
         except Exception:
-            st.markdown('<div style="background:rgba(239,68,68,0.1); border:1px solid #ef4444; color:#ef4444; border-radius:6px; padding:4px 10px; font-size:0.75rem; font-weight:800; text-align:center;">🔴 API OFFLINE</div>', unsafe_allow_html=True)
+            st.markdown('<div style="background:rgba(239,68,68,0.1); border:1px solid #ef4444; color:#ef4444; border-radius:6px; padding:4px 10px; font-size:0.75rem; font-weight:800; text-align:center;">🔴 Backend Unreachable</div>', unsafe_allow_html=True)
     else:
         st.markdown('<div style="background:rgba(148,163,184,0.1); border:1px solid #94a3b8; color:#94a3b8; border-radius:6px; padding:4px 10px; font-size:0.75rem; font-weight:800; text-align:center;">⚪ URL NOT SET</div>', unsafe_allow_html=True)
 
+    st.session_state['_backend_online'] = is_online
     theme_choice = st.toggle("🌙 Dark Mode", value=(st.session_state.theme == "dark"))
 
 
@@ -377,6 +392,23 @@ st.markdown('''
 </div>
 ''', unsafe_allow_html=True)
 
+# --- Global Connectivity Alert Banner ---
+if not st.session_state.get('_backend_online', False):
+    st.markdown(f"""
+    <div style="background:rgba(245,158,11,0.1); border:1.5px solid rgba(245,158,11,0.4); 
+                border-radius:12px; padding:16px 20px; margin: 15px 0; display:flex; align-items:center; gap:16px;">
+        <div style="font-size:24px;">⚠</div>
+        <div>
+            <div style="font-weight:700; color:#f59e0b; font-size:1.05rem;">Backend Unreachable</div>
+            <div style="color:#d1d5db; font-size:0.85rem; margin-top:2px;">
+                The AURA API is currently offline. System has automatically shifted to <strong>Synthetic Isolation Mode</strong>. 
+                {f"<br><span style='color:#4FC3F7'>💡 Tip: ngrok warning detected. </span><a href='{st.session_state.get('backend_url', NGROK_DEFAULT)}' target='_blank' style='color:#4FC3F7; font-weight:bold;'>Click here to bypass warning</a>" if st.session_state.get('_ngrok_warning') else ""}
+                Please update the <span style="color:#f59e0b; font-weight:600;">Backend Configuration</span> in the sidebar to resume live monitoring.
+            </div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
 
 # ════════════════════════════════════════════════════════════════════
 # DASHBOARD
@@ -386,21 +418,19 @@ if page == "🏠 Dashboard":
     history = get_history(200)
     # Fetch remote transactions from FastAPI and merge in front (real-time)
     remote_tx = fetch_transactions()
-    if remote_tx is None or not st.session_state.get('backend_url'):
-        st.warning("⚠️ Backend unreachable. Displaying local synthetic transaction history for UX stability.")
+    if not st.session_state.get('_backend_online'):
+        # Only fallback if actually offline
         try:
             df_syn = pd.read_csv("data/synthetic_transactions.csv").tail(50)
             remote_tx = df_syn.to_dict(orient="records")
             for t in remote_tx:
-                t["source"] = "synthetic (file)"
+                t["source"] = "synthetic (offline)"
                 if "label" in t: t["is_fraud"] = bool(t["label"])
                 if "label" in t and "fraud_probability" not in t: t["fraud_probability"] = 0.9 if t["label"] else 0.1
         except Exception:
             remote_tx = []
     
-    # UI verification: show count of fetched transactions
-    if remote_tx:
-        st.markdown(f"<div style='color:#94a3b8;margin-bottom:8px'>Fetched {len(remote_tx)} data nodes</div>", unsafe_allow_html=True)
+    # Pre-aggregate data for the main dashboard view
 
     # Initialize known tx id set on first load
     if 'known_tx_ids' not in st.session_state:
@@ -558,12 +588,13 @@ if page == "🏠 Dashboard":
     with col_table:
         st.markdown('<div class="card-title">📋 Recent Transactions</div>', unsafe_allow_html=True)
         if history:
-            df_d = pd.DataFrame(history)[["transaction_id","timestamp","amount","risk_level","fraud_probability","is_fraud","source"]].head(15)
+            df_d = pd.DataFrame(history)[["transaction_id","timestamp","amount","risk_level","fraud_probability","is_fraud","source", "merchant"]].head(15)
             df_d["Probability"] = (df_d["fraud_probability"]*100).round(1).astype(str)+"%"
             df_d["Amount"]      = df_d["amount"].apply(lambda x:f"₹{x:,.2f}")
             df_d["Fraud"]       = df_d["is_fraud"].map({True:"🚨 Yes",False:"✅ No"})
+            df_d["Receiver"]    = df_d["merchant"].fillna("Unknown")
             df_d = df_d.rename(columns={"transaction_id":"ID","timestamp":"Time","risk_level":"Risk","source":"Source"})
-            st.dataframe(df_d[["ID","Time","Amount","Risk","Probability","Fraud","Source"]],
+            st.dataframe(df_d[["ID","Time","Amount","Receiver","Risk","Probability","Fraud","Source"]],
                          use_container_width=True, hide_index=True, height=300)
             # Non-intrusive report button: shows selected tx details + analytics snapshot
             if st.button("View Report", key="view_report_btn"):
@@ -917,13 +948,12 @@ elif page == "📡 Live Transactions":
         pass
 
     remote_tx = fetch_transactions()
-    if remote_tx is None:
-        st.warning("⚠️ Backend unreachable. Displaying local synthetic transaction history.")
+    if not st.session_state.get('_backend_online'):
         try:
             df_syn = pd.read_csv("data/synthetic_transactions.csv").tail(100)
             remote_tx = df_syn.to_dict(orient="records")
             for t in remote_tx:
-                t["source"] = "synthetic (file)"
+                t["source"] = "synthetic (offline)"
                 if "label" in t: t["is_fraud"] = bool(t["label"])
                 if "risk_level" not in t: 
                     t["risk_level"] = "High" if t.get("label",0) else "Low"
@@ -988,16 +1018,18 @@ elif page == "📡 Live Transactions":
                 'ID': t.get('transaction_id')
             })
         df_live = pd.DataFrame(rows)
-        st.dataframe(df_live, use_container_width=True, hide_index=True, height=450)
+        st.dataframe(df_live[['Amount', 'Receiver', 'Fraud', 'Risk Score']], use_container_width=True, hide_index=True, height=450)
     else:
-        st.info("No live transactions available.")
+        st.info("No transactions yet")
 
-    # After showing Live Transactions, fall through to Analytics if user selected that previously
-    # (we intentionally return here to avoid executing Analytics block)
-    st.stop()
+    # Live Transaction indicator
+    pass
 
 elif page == "📷 QR Scanner":
-    render_qr_scanner()
+    try:
+        render_qr_scanner()
+    except Exception as e:
+        st.error(f"Failed to load QR Scanner: {e}")
 
 elif page == "📊 Analytics":
     st.markdown('''
@@ -1313,30 +1345,23 @@ elif page == "🔐 Cyber Awareness":
             </div>
             ''', unsafe_allow_html=True)
 
-# ── QR Scanner Page ────────────────────────────────────────────────
-if page == "📷 QR Scanner":
-    try:
-        render_qr_scanner()
-    except Exception as e:
-        st.error(f"Failed to load QR Scanner: {e}")
-
-# ── KYC / Logout Pages (new)
+# ── KYC / Logout Pages (merged into main chain)
 elif page == "🧾 KYC":
     try:
         import kyc
         importlib.reload(kyc)
         from kyc import render_kyc
         render_kyc()
-    except Exception:
-        st.error("Failed to load KYC page.")
+    except Exception as e:
+        st.error(f"Failed to load KYC page: {e}")
 elif page == "🔓 Logout":
     try:
         import logout
         importlib.reload(logout)
         from logout import render_logout
         render_logout()
-    except Exception:
-        st.error("Failed to load Logout page.")
+    except Exception as e:
+        st.error(f"Failed to load Logout page: {e}")
 
 # ── Global UI Components ────────────────────────────────────────────
 render_chatbot()

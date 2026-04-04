@@ -92,6 +92,7 @@ def stream_next():
 
 
 @app.get("/history")
+@app.get("/transactions")
 def history(limit: int = 50):
     return get_recent_transactions(limit)
 

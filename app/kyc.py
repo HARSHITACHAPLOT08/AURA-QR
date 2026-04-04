@@ -19,15 +19,15 @@ def render_kyc():
 
     # Upload area
     st.markdown('<div style="padding:12px;border:1px dashed rgba(148,163,184,0.12);border-radius:8px;background:rgba(2,6,23,0.5)">', unsafe_allow_html=True)
-    uploaded = st.file_uploader("Click to upload your ID", type=["png","jpg","jpeg","pdf"], help="Supported: Driver\'s License, Passport, National ID (PNG/JPG/PDF)")
+    uploaded = st.file_uploader("Click to upload your ID", type=["png","jpg","jpeg","pdf"], help="Supported: Driver\'s License, Passport, National ID (PNG/JPG/PDF)", key="kyc_file_upload_widget")
     st.markdown('</div>', unsafe_allow_html=True)
 
     st.markdown('<div style="margin-top:18px"></div>', unsafe_allow_html=True)
 
     with st.form("kyc_form"):
-        id_type = st.selectbox("ID Type", ["Passport", "Driver's License", "National ID", "Other"])
-        id_number = st.text_input("ID Number")
-        address = st.text_area("Address", height=80)
+        id_type = st.selectbox("ID Type", ["Passport", "Driver's License", "National ID", "Other"], key="kyc_id_type_select")
+        id_number = st.text_input("ID Number", key="kyc_id_number_input")
+        address = st.text_area("Address", height=80, key="kyc_address_area")
         submit = st.form_submit_button("Submit KYC")
 
         if submit:
