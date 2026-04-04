@@ -57,6 +57,19 @@ class Transaction(Base):
     source    = Column(String, default="manual")  # manual | stream
 
 
+class KYCSubmission(Base):
+    __tablename__ = "kyc_submissions"
+
+    id = Column(Integer, primary_key=True, index=True)
+    username = Column(String, index=True)
+    id_type = Column(String)
+    id_number = Column(String)
+    file_path = Column(String)
+    status = Column(String, default="pending")
+    submitted_at = Column(DateTime, default=datetime.utcnow)
+
+
+
 def init_db():
     Base.metadata.create_all(bind=ENGINE)
 
@@ -116,6 +129,34 @@ def get_stats() -> dict:
 def _row_to_dict(row: Transaction) -> dict:
     return {c.key: getattr(row, c.key)
             for c in inspect(row).mapper.column_attrs}
+
+
+def save_kyc_submission(username: str, id_type: str, id_number: str, file_bytes: bytes, filename: str, db=None):
+    """Save uploaded KYC document to disk and persist a DB record.
+
+    Returns the DB row.
+    """
+    close = False
+    if db is None:
+        db = SessionLocal()
+        close = True
+    try:
+        # Ensure directory
+        kyc_dir = Path(__file__).parent.parent / 'data' / 'kyc'
+        kyc_dir.mkdir(parents=True, exist_ok=True)
+        safe_name = f"{int(datetime.utcnow().timestamp())}_{filename}"
+        fp = kyc_dir / safe_name
+        with open(fp, 'wb') as f:
+            f.write(file_bytes)
+
+        row = KYCSubmission(username=username, id_type=id_type, id_number=id_number, file_path=str(fp), status='pending')
+        db.add(row)
+        db.commit()
+        db.refresh(row)
+        return row
+    finally:
+        if close:
+            db.close()
 
 
 # Initialise on import

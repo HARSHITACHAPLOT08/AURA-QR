@@ -1,0 +1,1037 @@
+[2026-04-03T10:33:42.004802] Starting continuous watcher. Initial DB count: 68
+[2026-04-03T10:33:42.701893] New backend transaction ID observed: 4b9987ba-fe29-469b-ad5f-aa7c8d2425df
+[2026-04-03T10:33:42.702523] New backend transaction ID observed: 2df70ffb-3e8c-4efb-8e9a-272a4fa36b8b
+[2026-04-03T10:33:42.702960] New backend transaction ID observed: cf19e411-a420-4a60-8b75-a9e348fa2a6a
+[2026-04-03T10:33:42.703322] New backend transaction ID observed: 579b6db8-4213-41d5-b9d0-3215c3d4df56
+[2026-04-03T10:33:42.703639] New backend transaction ID observed: 1f6ae4ae-4d03-4463-9745-0edbedadd3b3
+[2026-04-03T10:33:42.704730] New backend transaction ID observed: 9fbaf2cb-b336-4acc-91dc-7c2925fd20e8
+[2026-04-03T10:33:42.705124] New backend transaction ID observed: 5f477fd2-e25d-47cd-8131-a38e6039ce67
+[2026-04-03T10:33:42.705456] New backend transaction ID observed: d23862c2-6aad-416a-af92-b1b36eeb7acf
+[2026-04-03T10:33:42.705754] New backend transaction ID observed: 9fad5a93-e658-43ab-8dd3-8e990a1e67f7
+[2026-04-03T10:33:42.706038] New backend transaction ID observed: 00a03c30-3e83-4488-9430-0a4afbd87721
+[2026-04-03T10:33:42.706427] New backend transaction ID observed: d3e42cc7-5dda-4e11-8441-8ae9c120a082
+[2026-04-03T10:33:42.706864] New backend transaction ID observed: c5f82794-4356-409b-87d1-8c0ab74269e0
+[2026-04-03T10:33:43.378211] GET /analyze status=405 len=31
+[2026-04-03T10:33:46.602992] GET /analyze status=405 len=31
+[2026-04-03T10:33:49.777633] GET /analyze status=405 len=31
+[2026-04-03T10:33:53.212429] GET /analyze status=405 len=31
+[2026-04-03T10:33:56.786800] GET /analyze status=405 len=31
+[2026-04-03T10:34:00.220762] GET /analyze status=405 len=31
+[2026-04-03T10:34:03.491334] GET /analyze status=405 len=31
+[2026-04-03T10:34:06.728679] GET /analyze status=405 len=31
+[2026-04-03T10:34:10.398353] GET /analyze status=405 len=31
+[2026-04-03T10:34:14.847944] GET /analyze status=405 len=31
+[2026-04-03T10:34:18.298536] GET /analyze status=405 len=31
+[2026-04-03T10:34:23.495938] GET /analyze status=405 len=31
+[2026-04-03T10:34:26.955853] GET /analyze status=405 len=31
+[2026-04-03T10:34:30.737769] GET /analyze status=405 len=31
+[2026-04-03T10:34:35.178811] GET /analyze status=405 len=31
+[2026-04-03T10:34:38.875388] GET /analyze status=405 len=31
+[2026-04-03T10:34:42.603948] GET /analyze status=405 len=31
+[2026-04-03T10:34:46.252911] GET /analyze status=405 len=31
+[2026-04-03T10:34:49.634292] GET /analyze status=405 len=31
+[2026-04-03T10:34:52.997227] GET /analyze status=405 len=31
+[2026-04-03T10:34:56.499838] GET /analyze status=405 len=31
+[2026-04-03T10:35:00.276847] GET /analyze status=405 len=31
+[2026-04-03T10:35:03.724533] GET /analyze status=405 len=31
+[2026-04-03T10:35:08.679220] GET /analyze status=405 len=31
+[2026-04-03T10:35:12.220000] GET /analyze status=405 len=31
+[2026-04-03T10:35:15.846898] GET /analyze status=405 len=31
+[2026-04-03T10:35:19.895787] GET /analyze status=405 len=31
+[2026-04-03T10:35:30.434915] Error polling /transactions: ReadTimeout(ReadTimeoutError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Read timed out. (read timeout=6)"))
+[2026-04-03T10:35:37.062951] Error polling /analyze: ReadTimeout(ReadTimeoutError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Read timed out. (read timeout=6)"))
+[2026-04-03T10:35:44.441241] Error polling /transactions: HTTPError('503 Server Error: Service Unavailable for url: https://hattie-unbrushed-criminologically.ngrok-free.dev/transactions')
+[2026-04-03T10:35:45.396864] GET /analyze status=405 len=31
+[2026-04-03T10:35:48.783202] New backend transaction ID observed: fc67ef3f-bf43-4ff4-a9f4-30be9d135500
+[2026-04-03T10:35:49.690724] GET /analyze status=405 len=31
+[2026-04-03T10:35:54.354368] GET /analyze status=405 len=31
+[2026-04-03T10:35:59.990945] GET /analyze status=405 len=31
+[2026-04-03T10:36:03.822642] GET /analyze status=405 len=31
+[2026-04-03T10:36:08.125229] GET /analyze status=405 len=31
+[2026-04-03T10:36:12.896688] GET /analyze status=405 len=31
+[2026-04-03T10:36:17.704828] GET /analyze status=405 len=31
+[2026-04-03T10:36:22.254246] GET /analyze status=405 len=31
+[2026-04-03T10:36:26.716176] GET /analyze status=405 len=31
+[2026-04-03T10:36:31.279070] GET /analyze status=405 len=31
+[2026-04-03T10:36:36.137468] GET /analyze status=405 len=31
+[2026-04-03T10:36:42.127309] GET /analyze status=405 len=31
+[2026-04-03T10:36:48.542475] GET /analyze status=405 len=31
+[2026-04-03T10:36:54.612108] GET /analyze status=405 len=31
+[2026-04-03T10:37:00.450205] GET /analyze status=405 len=31
+[2026-04-03T10:37:05.738469] GET /analyze status=405 len=31
+[2026-04-03T10:37:12.026321] GET /analyze status=405 len=31
+[2026-04-03T10:37:17.978397] GET /analyze status=405 len=31
+[2026-04-03T10:37:25.688342] GET /analyze status=405 len=31
+[2026-04-03T10:37:31.808828] GET /analyze status=405 len=31
+[2026-04-03T10:37:37.023141] GET /analyze status=405 len=31
+[2026-04-03T10:37:42.387983] GET /analyze status=405 len=31
+[2026-04-03T10:37:47.255112] GET /analyze status=405 len=31
+[2026-04-03T10:37:52.319754] GET /analyze status=405 len=31
+[2026-04-03T10:37:58.005049] GET /analyze status=405 len=31
+[2026-04-03T10:38:02.841816] GET /analyze status=405 len=31
+[2026-04-03T10:38:08.292461] GET /analyze status=405 len=31
+[2026-04-03T10:38:13.033352] GET /analyze status=405 len=31
+[2026-04-03T10:38:18.016184] GET /analyze status=405 len=31
+[2026-04-03T10:38:24.539063] GET /analyze status=405 len=31
+[2026-04-03T10:38:29.540750] GET /analyze status=405 len=31
+[2026-04-03T10:38:34.753119] GET /analyze status=405 len=31
+[2026-04-03T10:38:39.565379] GET /analyze status=405 len=31
+[2026-04-03T10:38:47.586738] GET /analyze status=405 len=31
+[2026-04-03T10:38:53.636196] GET /analyze status=405 len=31
+[2026-04-03T10:38:58.400034] GET /analyze status=405 len=31
+[2026-04-03T10:39:03.918165] GET /analyze status=405 len=31
+[2026-04-03T10:39:12.131929] GET /analyze status=405 len=31
+[2026-04-03T10:39:16.361306] New backend transaction ID observed: 7ca0ed1c-1a3b-4380-8e70-bc70d23b0ce2
+[2026-04-03T10:39:16.362819] New backend transaction ID observed: ddeb0db4-8297-4c93-b241-7468b39d8ea5
+[2026-04-03T10:39:18.373377] GET /analyze status=405 len=31
+[2026-04-03T10:39:21.800400] New backend transaction ID observed: 89480b47-5a77-4617-ba96-e26dd21566de
+[2026-04-03T10:39:23.056918] GET /analyze status=405 len=31
+[2026-04-03T10:39:30.161096] GET /analyze status=405 len=31
+[2026-04-03T10:39:36.110133] GET /analyze status=405 len=31
+[2026-04-03T10:39:40.488862] GET /analyze status=405 len=31
+[2026-04-03T10:39:44.904713] GET /analyze status=405 len=31
+[2026-04-03T10:39:48.992274] GET /analyze status=405 len=31
+[2026-04-03T10:39:53.403741] GET /analyze status=405 len=31
+[2026-04-03T10:39:58.076643] GET /analyze status=405 len=31
+[2026-04-03T10:40:02.375159] GET /analyze status=405 len=31
+[2026-04-03T10:40:06.889902] GET /analyze status=405 len=31
+[2026-04-03T10:40:11.217045] GET /analyze status=405 len=31
+[2026-04-03T10:40:15.677000] GET /analyze status=405 len=31
+[2026-04-03T10:40:19.865479] GET /analyze status=405 len=31
+[2026-04-03T10:40:24.934687] GET /analyze status=405 len=31
+[2026-04-03T10:40:29.160787] GET /analyze status=405 len=31
+[2026-04-03T10:40:33.196295] GET /analyze status=405 len=31
+[2026-04-03T10:40:37.530657] GET /analyze status=405 len=31
+[2026-04-03T10:40:41.775312] GET /analyze status=405 len=31
+[2026-04-03T10:40:46.716834] GET /analyze status=405 len=31
+[2026-04-03T10:40:51.117285] GET /analyze status=405 len=31
+[2026-04-03T10:40:54.998887] GET /analyze status=405 len=31
+[2026-04-03T10:40:59.139743] GET /analyze status=405 len=31
+[2026-04-03T10:41:03.439808] GET /analyze status=405 len=31
+[2026-04-03T10:41:07.642905] GET /analyze status=405 len=31
+[2026-04-03T10:41:11.707420] GET /analyze status=405 len=31
+[2026-04-03T10:41:15.575951] GET /analyze status=405 len=31
+[2026-04-03T10:41:19.723296] GET /analyze status=405 len=31
+[2026-04-03T10:41:23.688032] GET /analyze status=405 len=31
+[2026-04-03T10:41:29.061130] GET /analyze status=405 len=31
+[2026-04-03T10:41:33.300214] GET /analyze status=405 len=31
+[2026-04-03T10:41:37.393255] GET /analyze status=405 len=31
+[2026-04-03T10:41:42.442141] GET /analyze status=405 len=31
+[2026-04-03T10:41:46.630155] GET /analyze status=405 len=31
+[2026-04-03T10:41:51.367250] GET /analyze status=405 len=31
+[2026-04-03T10:41:57.624263] GET /analyze status=405 len=31
+[2026-04-03T10:42:02.650520] GET /analyze status=405 len=31
+[2026-04-03T10:42:07.046232] GET /analyze status=405 len=31
+[2026-04-03T10:42:11.516549] GET /analyze status=405 len=31
+[2026-04-03T10:42:16.264649] GET /analyze status=405 len=31
+[2026-04-03T10:42:20.563321] GET /analyze status=405 len=31
+[2026-04-03T10:42:25.130228] GET /analyze status=405 len=31
+[2026-04-03T10:42:30.086362] GET /analyze status=405 len=31
+[2026-04-03T10:42:35.580862] GET /analyze status=405 len=31
+[2026-04-03T10:42:40.392487] GET /analyze status=405 len=31
+[2026-04-03T10:42:45.435174] GET /analyze status=405 len=31
+[2026-04-03T10:42:50.615543] GET /analyze status=405 len=31
+[2026-04-03T10:42:55.635997] GET /analyze status=405 len=31
+[2026-04-03T10:43:00.513693] GET /analyze status=405 len=31
+[2026-04-03T10:43:04.917790] GET /analyze status=405 len=31
+[2026-04-03T10:43:09.052707] GET /analyze status=405 len=31
+[2026-04-03T10:43:13.312065] GET /analyze status=405 len=31
+[2026-04-03T10:43:18.577387] GET /analyze status=405 len=31
+[2026-04-03T10:43:23.185318] GET /analyze status=405 len=31
+[2026-04-03T10:43:28.872620] GET /analyze status=405 len=31
+[2026-04-03T10:43:33.793685] GET /analyze status=405 len=31
+[2026-04-03T10:43:38.082624] GET /analyze status=405 len=31
+[2026-04-03T10:43:42.028459] GET /analyze status=405 len=31
+[2026-04-03T10:43:46.049557] GET /analyze status=405 len=31
+[2026-04-03T10:43:50.155169] GET /analyze status=405 len=31
+[2026-04-03T10:43:55.346314] GET /analyze status=405 len=31
+[2026-04-03T10:43:59.689605] GET /analyze status=405 len=31
+[2026-04-03T10:44:04.391296] GET /analyze status=405 len=31
+[2026-04-03T10:44:08.389984] GET /analyze status=405 len=31
+[2026-04-03T10:44:11.783331] GET /analyze status=405 len=31
+[2026-04-03T10:44:15.725565] GET /analyze status=405 len=31
+[2026-04-03T10:44:20.170248] GET /analyze status=405 len=31
+[2026-04-03T10:44:25.548933] GET /analyze status=405 len=31
+[2026-04-03T10:44:29.862666] GET /analyze status=405 len=31
+[2026-04-03T10:44:34.149952] GET /analyze status=405 len=31
+[2026-04-03T10:44:38.522303] GET /analyze status=405 len=31
+[2026-04-03T10:44:42.294554] GET /analyze status=405 len=31
+[2026-04-03T10:44:46.270855] GET /analyze status=405 len=31
+[2026-04-03T10:44:50.386532] GET /analyze status=405 len=31
+[2026-04-03T10:44:56.454585] GET /analyze status=405 len=31
+[2026-04-03T10:45:05.919669] GET /analyze status=405 len=31
+[2026-04-03T10:45:10.490146] GET /analyze status=405 len=31
+[2026-04-03T10:45:15.137803] GET /analyze status=405 len=31
+[2026-04-03T10:45:19.340146] GET /analyze status=405 len=31
+[2026-04-03T10:45:25.097001] GET /analyze status=405 len=31
+[2026-04-03T10:45:29.053111] GET /analyze status=405 len=31
+[2026-04-03T10:45:32.864386] GET /analyze status=405 len=31
+[2026-04-03T10:45:38.398259] GET /analyze status=405 len=31
+[2026-04-03T10:45:43.975133] Error polling /transactions: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /transactions (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T10:45:48.263202] GET /analyze status=405 len=31
+[2026-04-03T10:45:56.823658] GET /analyze status=405 len=31
+[2026-04-03T10:46:01.485979] GET /analyze status=405 len=31
+[2026-04-03T10:46:05.310626] GET /analyze status=405 len=31
+[2026-04-03T10:46:10.462901] GET /analyze status=405 len=31
+[2026-04-03T10:46:14.954920] GET /analyze status=405 len=31
+[2026-04-03T10:46:19.034335] GET /analyze status=405 len=31
+[2026-04-03T10:46:23.201004] GET /analyze status=405 len=31
+[2026-04-03T10:46:27.572945] GET /analyze status=405 len=31
+[2026-04-03T10:46:31.804795] GET /analyze status=405 len=31
+[2026-04-03T10:46:36.963041] GET /analyze status=405 len=31
+[2026-04-03T10:46:41.212249] GET /analyze status=405 len=31
+[2026-04-03T10:46:47.147890] GET /analyze status=405 len=31
+[2026-04-03T10:46:51.617704] GET /analyze status=405 len=31
+[2026-04-03T10:46:57.583996] GET /analyze status=405 len=31
+[2026-04-03T10:47:01.444959] GET /analyze status=405 len=31
+[2026-04-03T10:47:07.735491] GET /analyze status=405 len=31
+[2026-04-03T10:47:12.361471] GET /analyze status=405 len=31
+[2026-04-03T10:47:17.020204] GET /analyze status=405 len=31
+[2026-04-03T10:47:20.723454] GET /analyze status=405 len=31
+[2026-04-03T10:47:24.239481] GET /analyze status=405 len=31
+[2026-04-03T10:47:28.130467] GET /analyze status=405 len=31
+[2026-04-03T10:47:32.839700] GET /analyze status=405 len=31
+[2026-04-03T10:47:36.398628] GET /analyze status=405 len=31
+[2026-04-03T10:47:39.809617] GET /analyze status=405 len=31
+[2026-04-03T10:47:43.099422] GET /analyze status=405 len=31
+[2026-04-03T10:47:47.977379] GET /analyze status=405 len=31
+[2026-04-03T10:47:51.713826] GET /analyze status=405 len=31
+[2026-04-03T10:47:55.331517] GET /analyze status=405 len=31
+[2026-04-03T10:47:59.597697] GET /analyze status=405 len=31
+[2026-04-03T10:48:03.103879] GET /analyze status=405 len=31
+[2026-04-03T10:48:06.467852] GET /analyze status=405 len=31
+[2026-04-03T10:48:10.241605] GET /analyze status=405 len=31
+[2026-04-03T10:48:13.584803] GET /analyze status=405 len=31
+[2026-04-03T10:48:17.731829] GET /analyze status=405 len=31
+[2026-04-03T10:48:21.932745] GET /analyze status=405 len=31
+[2026-04-03T10:48:31.234345] Error polling /transactions: ReadTimeout(ReadTimeoutError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Read timed out. (read timeout=6)"))
+[2026-04-03T10:48:32.241436] GET /analyze status=405 len=31
+[2026-04-03T10:48:41.036208] Error polling /transactions: ReadTimeout(ReadTimeoutError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Read timed out. (read timeout=6)"))
+[2026-04-03T10:48:42.997159] GET /analyze status=405 len=31
+[2026-04-03T10:48:46.014715] New backend transaction ID observed: b2d863d5-7099-4bee-a462-7b01c053de68
+[2026-04-03T10:48:46.015220] New backend transaction ID observed: 08b97a18-e972-4412-8573-7a6d80a27ed6
+[2026-04-03T10:48:46.900992] GET /analyze status=405 len=31
+[2026-04-03T10:48:51.398966] GET /analyze status=405 len=31
+[2026-04-03T10:48:55.586537] GET /analyze status=405 len=31
+[2026-04-03T10:48:59.802164] GET /analyze status=405 len=31
+[2026-04-03T10:49:04.396223] GET /analyze status=405 len=31
+[2026-04-03T10:49:08.845349] GET /analyze status=405 len=31
+[2026-04-03T10:49:13.013022] GET /analyze status=405 len=31
+[2026-04-03T10:49:19.134828] GET /analyze status=405 len=31
+[2026-04-03T10:49:24.061265] GET /analyze status=405 len=31
+[2026-04-03T10:49:28.972993] GET /analyze status=405 len=31
+[2026-04-03T10:49:34.816374] GET /analyze status=405 len=31
+[2026-04-03T10:49:43.886563] GET /analyze status=405 len=31
+[2026-04-03T10:49:49.848823] GET /analyze status=405 len=31
+[2026-04-03T10:49:55.595021] GET /analyze status=405 len=31
+[2026-04-03T10:50:02.462727] GET /analyze status=405 len=31
+[2026-04-03T10:50:09.482174] GET /analyze status=405 len=31
+[2026-04-03T10:50:16.285300] GET /analyze status=405 len=31
+[2026-04-03T10:50:20.016384] New backend transaction ID observed: 89001269-a0c8-466d-b9d2-b47dbeaae840
+[2026-04-03T10:50:21.456023] GET /analyze status=405 len=31
+[2026-04-03T10:50:29.344497] GET /analyze status=405 len=31
+[2026-04-03T10:50:35.125071] GET /analyze status=405 len=31
+[2026-04-03T10:50:39.638030] GET /analyze status=405 len=31
+[2026-04-03T10:50:44.709659] GET /analyze status=405 len=31
+[2026-04-03T10:50:49.616864] GET /analyze status=405 len=31
+[2026-04-03T10:50:54.436176] GET /analyze status=405 len=31
+[2026-04-03T10:51:00.671642] GET /analyze status=405 len=31
+[2026-04-03T10:51:04.426353] GET /analyze status=405 len=31
+[2026-04-03T10:51:07.837156] GET /analyze status=405 len=31
+[2026-04-03T10:51:11.944260] GET /analyze status=405 len=31
+[2026-04-03T10:51:15.725673] GET /analyze status=405 len=31
+[2026-04-03T10:51:20.508038] GET /analyze status=405 len=31
+[2026-04-03T10:51:23.817121] Error polling /transactions: ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)))
+[2026-04-03T10:51:23.960535] Error polling /analyze: ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\'hattie-unbrushed-criminologically.ngrok-free.dev\', port=443): Max retries exceeded with url: /analyze (Caused by NameResolutionError("HTTPSConnection(host=\'hattie-unbrushed-criminologically.ngrok-free.dev\', port=443): Failed to resolve \'hattie-unbrushed-criminologically.ngrok-free.dev\' ([Errno 11001] getaddrinfo failed)"))'))
+[2026-04-03T10:51:27.394719] GET /analyze status=405 len=31
+[2026-04-03T10:51:31.620037] GET /analyze status=405 len=31
+[2026-04-03T10:51:36.626124] GET /analyze status=405 len=31
+[2026-04-03T10:51:43.123462] Error polling /transactions: HTTPError('503 Server Error: Service Unavailable for url: https://hattie-unbrushed-criminologically.ngrok-free.dev/transactions')
+[2026-04-03T10:51:44.269690] GET /analyze status=405 len=31
+[2026-04-03T10:51:48.124047] GET /analyze status=405 len=31
+[2026-04-03T10:51:52.179883] GET /analyze status=405 len=31
+[2026-04-03T10:51:57.201472] GET /analyze status=405 len=31
+[2026-04-03T10:52:02.153378] GET /analyze status=405 len=31
+[2026-04-03T10:52:07.512514] GET /analyze status=405 len=31
+[2026-04-03T10:52:11.255812] GET /analyze status=405 len=31
+[2026-04-03T10:52:15.540812] GET /analyze status=405 len=31
+[2026-04-03T10:52:19.497823] GET /analyze status=405 len=31
+[2026-04-03T10:52:23.746496] GET /analyze status=405 len=31
+[2026-04-03T10:52:28.342796] GET /analyze status=405 len=31
+[2026-04-03T10:52:31.782402] GET /analyze status=405 len=31
+[2026-04-03T10:52:35.247459] GET /analyze status=405 len=31
+[2026-04-03T10:52:39.069087] GET /analyze status=405 len=31
+[2026-04-03T10:52:42.554964] GET /analyze status=405 len=31
+[2026-04-03T10:52:46.009542] GET /analyze status=405 len=31
+[2026-04-03T10:52:49.491620] GET /analyze status=405 len=31
+[2026-04-03T10:52:52.878147] GET /analyze status=405 len=31
+[2026-04-03T10:52:57.584545] GET /analyze status=405 len=31
+[2026-04-03T10:53:01.608469] GET /analyze status=405 len=31
+[2026-04-03T10:53:04.956699] GET /analyze status=405 len=31
+[2026-04-03T10:53:07.957238] New backend transaction ID observed: fc5721a1-5446-4e86-8581-0d00cc795881
+[2026-04-03T10:53:08.848553] GET /analyze status=405 len=31
+[2026-04-03T10:53:13.254624] GET /analyze status=405 len=31
+[2026-04-03T10:53:16.969193] GET /analyze status=405 len=31
+[2026-04-03T10:53:20.287853] GET /analyze status=405 len=31
+[2026-04-03T10:53:23.516657] GET /analyze status=405 len=31
+[2026-04-03T10:53:27.483668] GET /analyze status=405 len=31
+[2026-04-03T10:53:32.209286] GET /analyze status=405 len=31
+[2026-04-03T10:53:36.011233] GET /analyze status=405 len=31
+[2026-04-03T10:53:39.294212] GET /analyze status=405 len=31
+[2026-04-03T10:53:42.543679] GET /analyze status=405 len=31
+[2026-04-03T10:53:46.431382] GET /analyze status=405 len=31
+[2026-04-03T10:53:50.524216] GET /analyze status=405 len=31
+[2026-04-03T10:54:00.576238] Error polling /transactions: ReadTimeout(ReadTimeoutError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Read timed out. (read timeout=6)"))
+[2026-04-03T10:54:07.380387] Error polling /analyze: ReadTimeout(ReadTimeoutError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Read timed out. (read timeout=6)"))
+[2026-04-03T10:54:10.328184] Error polling /transactions: HTTPError('503 Server Error: Service Unavailable for url: https://hattie-unbrushed-criminologically.ngrok-free.dev/transactions')
+[2026-04-03T10:54:11.196692] GET /analyze status=405 len=31
+[2026-04-03T10:54:14.785267] GET /analyze status=405 len=31
+[2026-04-03T10:54:18.322648] GET /analyze status=405 len=31
+[2026-04-03T10:54:21.803613] GET /analyze status=405 len=31
+[2026-04-03T10:54:25.532090] GET /analyze status=405 len=31
+[2026-04-03T10:54:29.061320] GET /analyze status=405 len=31
+[2026-04-03T10:54:32.447132] GET /analyze status=405 len=31
+[2026-04-03T10:54:35.819048] GET /analyze status=405 len=31
+[2026-04-03T10:54:39.563182] GET /analyze status=405 len=31
+[2026-04-03T10:54:42.886323] GET /analyze status=405 len=31
+[2026-04-03T10:54:46.573317] GET /analyze status=405 len=31
+[2026-04-03T10:54:50.520767] GET /analyze status=405 len=31
+[2026-04-03T10:54:54.101525] GET /analyze status=405 len=31
+[2026-04-03T10:54:57.756776] GET /analyze status=405 len=31
+[2026-04-03T10:55:02.242032] GET /analyze status=405 len=31
+[2026-04-03T10:55:06.088247] GET /analyze status=405 len=31
+[2026-04-03T10:55:09.587690] GET /analyze status=405 len=31
+[2026-04-03T10:55:13.154420] GET /analyze status=405 len=31
+[2026-04-03T10:55:16.678975] GET /analyze status=405 len=31
+[2026-04-03T10:55:20.364377] GET /analyze status=405 len=31
+[2026-04-03T10:55:23.967385] GET /analyze status=405 len=31
+[2026-04-03T10:55:27.439727] GET /analyze status=405 len=31
+[2026-04-03T10:55:31.229759] GET /analyze status=405 len=31
+[2026-04-03T10:55:34.809834] GET /analyze status=405 len=31
+[2026-04-03T10:55:38.590902] GET /analyze status=405 len=31
+[2026-04-03T10:55:42.792136] GET /analyze status=405 len=31
+[2026-04-03T10:55:47.421744] GET /analyze status=405 len=31
+[2026-04-03T10:55:51.515376] GET /analyze status=405 len=31
+[2026-04-03T10:55:55.544556] GET /analyze status=405 len=31
+[2026-04-03T10:55:59.235796] GET /analyze status=405 len=31
+[2026-04-03T10:56:04.918130] GET /analyze status=405 len=31
+[2026-04-03T10:56:08.275625] GET /analyze status=405 len=31
+[2026-04-03T10:56:11.929292] GET /analyze status=405 len=31
+[2026-04-03T10:56:15.918960] GET /analyze status=405 len=31
+[2026-04-03T10:56:22.642386] GET /analyze status=405 len=31
+[2026-04-03T10:56:26.159626] GET /analyze status=405 len=31
+[2026-04-03T10:56:30.670692] GET /analyze status=405 len=31
+[2026-04-03T10:56:34.095185] GET /analyze status=405 len=31
+[2026-04-03T10:56:38.038801] GET /analyze status=405 len=31
+[2026-04-03T10:56:41.536135] GET /analyze status=405 len=31
+[2026-04-03T10:56:45.809597] GET /analyze status=405 len=31
+[2026-04-03T10:56:49.977121] GET /analyze status=405 len=31
+[2026-04-03T10:56:53.757710] GET /analyze status=405 len=31
+[2026-04-03T10:56:57.352800] GET /analyze status=405 len=31
+[2026-04-03T10:57:00.812917] GET /analyze status=405 len=31
+[2026-04-03T10:57:04.649798] GET /analyze status=405 len=31
+[2026-04-03T10:57:07.927699] GET /analyze status=405 len=31
+[2026-04-03T10:57:11.136416] GET /analyze status=405 len=31
+[2026-04-03T10:57:14.317540] GET /analyze status=405 len=31
+[2026-04-03T10:57:17.962332] GET /analyze status=405 len=31
+[2026-04-03T10:57:21.197040] GET /analyze status=405 len=31
+[2026-04-03T10:57:24.877850] GET /analyze status=405 len=31
+[2026-04-03T10:57:28.314655] GET /analyze status=405 len=31
+[2026-04-03T10:57:32.517598] GET /analyze status=405 len=31
+[2026-04-03T10:57:35.752486] GET /analyze status=405 len=31
+[2026-04-03T10:57:41.707759] GET /analyze status=405 len=31
+[2026-04-03T10:57:44.945717] GET /analyze status=405 len=31
+[2026-04-03T10:57:48.261798] GET /analyze status=405 len=31
+[2026-04-03T10:57:51.442377] GET /analyze status=405 len=31
+[2026-04-03T10:57:55.230681] GET /analyze status=405 len=31
+[2026-04-03T10:57:58.424861] GET /analyze status=405 len=31
+[2026-04-03T10:58:02.005730] GET /analyze status=405 len=31
+[2026-04-03T10:58:05.196315] GET /analyze status=405 len=31
+[2026-04-03T10:58:08.857788] GET /analyze status=405 len=31
+[2026-04-03T10:58:12.106579] GET /analyze status=405 len=31
+[2026-04-03T10:58:15.349594] GET /analyze status=405 len=31
+[2026-04-03T10:58:18.574616] GET /analyze status=405 len=31
+[2026-04-03T10:58:21.836820] GET /analyze status=405 len=31
+[2026-04-03T10:58:24.999448] GET /analyze status=405 len=31
+[2026-04-03T10:58:25.002096] New DB row: 2df70ffb-3e8c-4efb-8e9a-272a4fa36b8b
+[2026-04-03T10:58:25.002447] New DB row: 4b9987ba-fe29-469b-ad5f-aa7c8d2425df
+[2026-04-03T10:58:25.002818] New DB row: fc67ef3f-bf43-4ff4-a9f4-30be9d135500
+[2026-04-03T10:58:25.003184] New DB row: ddeb0db4-8297-4c93-b241-7468b39d8ea5
+[2026-04-03T10:58:25.003524] New DB row: 7ca0ed1c-1a3b-4380-8e70-bc70d23b0ce2
+[2026-04-03T10:58:25.003873] New DB row: 89480b47-5a77-4617-ba96-e26dd21566de
+[2026-04-03T10:58:25.004208] New DB row: 08b97a18-e972-4412-8573-7a6d80a27ed6
+[2026-04-03T10:58:25.004519] New DB row: b2d863d5-7099-4bee-a462-7b01c053de68
+[2026-04-03T10:58:25.004821] New DB row: 89001269-a0c8-466d-b9d2-b47dbeaae840
+[2026-04-03T10:58:25.005369] New DB row: fc5721a1-5446-4e86-8581-0d00cc795881
+[2026-04-03T10:58:28.518712] GET /analyze status=405 len=31
+[2026-04-03T10:58:31.896197] GET /analyze status=405 len=31
+[2026-04-03T10:58:35.604336] GET /analyze status=405 len=31
+[2026-04-03T10:58:38.884973] GET /analyze status=405 len=31
+[2026-04-03T10:58:42.548087] GET /analyze status=405 len=31
+[2026-04-03T10:58:45.868983] GET /analyze status=405 len=31
+[2026-04-03T10:58:49.506106] GET /analyze status=405 len=31
+[2026-04-03T10:58:52.703031] GET /analyze status=405 len=31
+[2026-04-03T10:58:56.477533] GET /analyze status=405 len=31
+[2026-04-03T10:58:59.955860] GET /analyze status=405 len=31
+[2026-04-03T10:59:03.605851] GET /analyze status=405 len=31
+[2026-04-03T10:59:07.224716] GET /analyze status=405 len=31
+[2026-04-03T10:59:10.911067] GET /analyze status=405 len=31
+[2026-04-03T10:59:14.598768] GET /analyze status=405 len=31
+[2026-04-03T10:59:17.978290] GET /analyze status=405 len=31
+[2026-04-03T10:59:21.176187] GET /analyze status=405 len=31
+[2026-04-03T10:59:24.841232] GET /analyze status=405 len=31
+[2026-04-03T10:59:28.218060] GET /analyze status=405 len=31
+[2026-04-03T10:59:31.734661] GET /analyze status=405 len=31
+[2026-04-03T10:59:35.489433] GET /analyze status=405 len=31
+[2026-04-03T10:59:39.174179] GET /analyze status=405 len=31
+[2026-04-03T10:59:42.963927] GET /analyze status=405 len=31
+[2026-04-03T10:59:46.752519] GET /analyze status=405 len=31
+[2026-04-03T10:59:50.131575] GET /analyze status=405 len=31
+[2026-04-03T10:59:53.774064] GET /analyze status=405 len=31
+[2026-04-03T10:59:57.564514] GET /analyze status=405 len=31
+[2026-04-03T11:00:01.031558] GET /analyze status=405 len=31
+[2026-04-03T11:00:04.408229] GET /analyze status=405 len=31
+[2026-04-03T11:00:07.129667] Error polling /transactions: ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)))
+[2026-04-03T11:00:07.267093] Error polling /analyze: ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\'hattie-unbrushed-criminologically.ngrok-free.dev\', port=443): Max retries exceeded with url: /analyze (Caused by NameResolutionError("HTTPSConnection(host=\'hattie-unbrushed-criminologically.ngrok-free.dev\', port=443): Failed to resolve \'hattie-unbrushed-criminologically.ngrok-free.dev\' ([Errno 11001] getaddrinfo failed)"))'))
+[2026-04-03T11:00:16.958209] Error polling /analyze: ReadTimeout(ReadTimeoutError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Read timed out. (read timeout=6)"))
+[2026-04-03T11:00:26.746703] Error polling /analyze: ReadTimeout(ReadTimeoutError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Read timed out. (read timeout=6)"))
+[2026-04-03T11:00:30.389901] GET /analyze status=405 len=31
+[2026-04-03T11:00:33.974917] GET /analyze status=405 len=31
+[2026-04-03T11:00:37.869675] GET /analyze status=405 len=31
+[2026-04-03T11:00:41.299405] GET /analyze status=405 len=31
+[2026-04-03T11:00:44.627591] GET /analyze status=405 len=31
+[2026-04-03T11:00:48.116663] GET /analyze status=405 len=31
+[2026-04-03T11:00:52.511447] GET /analyze status=405 len=31
+[2026-04-03T11:00:56.876081] GET /analyze status=405 len=31
+[2026-04-03T11:01:02.405148] GET /analyze status=405 len=31
+[2026-04-03T11:01:06.334786] GET /analyze status=405 len=31
+[2026-04-03T11:01:11.615407] GET /analyze status=405 len=31
+[2026-04-03T11:01:16.164604] GET /analyze status=405 len=31
+[2026-04-03T11:01:20.730135] GET /analyze status=405 len=31
+[2026-04-03T11:01:25.590954] GET /analyze status=405 len=31
+[2026-04-03T11:01:30.346250] GET /analyze status=405 len=31
+[2026-04-03T11:01:35.228859] GET /analyze status=405 len=31
+[2026-04-03T11:01:39.528639] GET /analyze status=405 len=31
+[2026-04-03T11:01:43.517125] GET /analyze status=405 len=31
+[2026-04-03T11:01:47.308144] GET /analyze status=405 len=31
+[2026-04-03T11:01:50.889303] GET /analyze status=405 len=31
+[2026-04-03T11:01:55.188859] GET /analyze status=405 len=31
+[2026-04-03T11:01:59.082357] GET /analyze status=405 len=31
+[2026-04-03T11:02:02.888559] GET /analyze status=405 len=31
+[2026-04-03T11:02:06.291534] GET /analyze status=405 len=31
+[2026-04-03T11:02:10.143056] GET /analyze status=405 len=31
+[2026-04-03T11:02:14.088821] GET /analyze status=405 len=31
+[2026-04-03T11:02:18.190633] GET /analyze status=405 len=31
+[2026-04-03T11:02:22.673771] GET /analyze status=405 len=31
+[2026-04-03T11:02:26.317469] GET /analyze status=405 len=31
+[2026-04-03T11:02:30.521102] GET /analyze status=405 len=31
+[2026-04-03T11:02:35.032913] GET /analyze status=405 len=31
+[2026-04-03T11:02:39.189815] GET /analyze status=405 len=31
+[2026-04-03T11:02:43.532853] GET /analyze status=405 len=31
+[2026-04-03T11:02:47.888316] GET /analyze status=405 len=31
+[2026-04-03T11:02:51.892682] GET /analyze status=405 len=31
+[2026-04-03T11:02:55.769005] GET /analyze status=405 len=31
+[2026-04-03T11:02:59.658139] GET /analyze status=405 len=31
+[2026-04-03T11:03:03.650511] GET /analyze status=405 len=31
+[2026-04-03T11:03:07.656154] GET /analyze status=405 len=31
+[2026-04-03T11:03:11.455652] GET /analyze status=405 len=31
+[2026-04-03T11:03:14.960761] GET /analyze status=405 len=31
+[2026-04-03T11:03:18.663397] GET /analyze status=405 len=31
+[2026-04-03T11:03:22.543395] GET /analyze status=405 len=31
+[2026-04-03T11:03:26.200654] GET /analyze status=405 len=31
+[2026-04-03T11:03:29.785525] GET /analyze status=405 len=31
+[2026-04-03T11:03:33.369041] GET /analyze status=405 len=31
+[2026-04-03T11:03:36.953363] GET /analyze status=405 len=31
+[2026-04-03T11:03:40.818859] GET /analyze status=405 len=31
+[2026-04-03T11:03:44.427620] GET /analyze status=405 len=31
+[2026-04-03T11:03:48.114388] GET /analyze status=405 len=31
+[2026-04-03T11:03:51.905223] GET /analyze status=405 len=31
+[2026-04-03T11:03:55.693157] GET /analyze status=405 len=31
+[2026-04-03T11:03:59.759638] GET /analyze status=405 len=31
+[2026-04-03T11:04:03.190614] GET /analyze status=405 len=31
+[2026-04-03T11:04:06.855835] GET /analyze status=405 len=31
+[2026-04-03T11:04:10.643232] GET /analyze status=405 len=31
+[2026-04-03T11:04:14.432307] GET /analyze status=405 len=31
+[2026-04-03T11:04:17.916465] GET /analyze status=405 len=31
+[2026-04-03T11:04:21.497787] GET /analyze status=405 len=31
+[2026-04-03T11:04:25.287182] GET /analyze status=405 len=31
+[2026-04-03T11:04:29.043886] GET /analyze status=405 len=31
+[2026-04-03T11:04:32.660538] GET /analyze status=405 len=31
+[2026-04-03T11:04:36.144220] GET /analyze status=405 len=31
+[2026-04-03T11:04:39.933576] GET /analyze status=405 len=31
+[2026-04-03T11:04:43.390708] GET /analyze status=405 len=31
+[2026-04-03T11:04:47.098660] GET /analyze status=405 len=31
+[2026-04-03T11:04:50.785878] GET /analyze status=405 len=31
+[2026-04-03T11:04:54.549062] GET /analyze status=405 len=31
+[2026-04-03T11:04:58.476266] GET /analyze status=405 len=31
+[2026-04-03T11:05:01.768149] GET /analyze status=405 len=31
+[2026-04-03T11:05:04.960059] GET /analyze status=405 len=31
+[2026-04-03T11:05:08.775469] GET /analyze status=405 len=31
+[2026-04-03T11:05:12.391954] GET /analyze status=405 len=31
+[2026-04-03T11:05:15.876465] GET /analyze status=405 len=31
+[2026-04-03T11:05:19.169825] GET /analyze status=405 len=31
+[2026-04-03T11:05:22.939364] GET /analyze status=405 len=31
+[2026-04-03T11:05:26.728740] GET /analyze status=405 len=31
+[2026-04-03T11:05:30.212280] GET /analyze status=405 len=31
+[2026-04-03T11:05:34.617462] GET /analyze status=405 len=31
+[2026-04-03T11:05:38.301610] GET /analyze status=405 len=31
+[2026-04-03T11:05:42.088781] GET /analyze status=405 len=31
+[2026-04-03T11:05:45.672357] GET /analyze status=405 len=31
+[2026-04-03T11:05:49.359099] GET /analyze status=405 len=31
+[2026-04-03T11:05:53.251289] GET /analyze status=405 len=31
+[2026-04-03T11:05:56.937164] GET /analyze status=405 len=31
+[2026-04-03T11:06:00.623949] GET /analyze status=405 len=31
+[2026-04-03T11:06:04.177877] GET /analyze status=405 len=31
+[2026-04-03T11:06:07.933440] GET /analyze status=405 len=31
+[2026-04-03T11:06:11.890919] GET /analyze status=405 len=31
+[2026-04-03T11:06:15.590770] GET /analyze status=405 len=31
+[2026-04-03T11:06:19.059210] GET /analyze status=405 len=31
+[2026-04-03T11:06:22.538785] GET /analyze status=405 len=31
+[2026-04-03T11:06:26.430311] GET /analyze status=405 len=31
+[2026-04-03T11:06:30.115450] GET /analyze status=405 len=31
+[2026-04-03T11:06:33.836580] GET /analyze status=405 len=31
+[2026-04-03T11:06:37.700441] GET /analyze status=405 len=31
+[2026-04-03T11:06:41.990290] GET /analyze status=405 len=31
+[2026-04-03T11:06:46.066833] GET /analyze status=405 len=31
+[2026-04-03T11:06:49.995230] GET /analyze status=405 len=31
+[2026-04-03T11:06:54.096861] GET /analyze status=405 len=31
+[2026-04-03T11:06:58.175968] GET /analyze status=405 len=31
+[2026-04-03T11:07:01.874879] GET /analyze status=405 len=31
+[2026-04-03T11:12:09.670549] Error polling /transactions: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /transactions (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:12:11.801427] GET /analyze status=405 len=31
+[2026-04-03T11:12:15.586430] GET /analyze status=405 len=31
+[2026-04-03T11:12:18.899776] GET /analyze status=405 len=31
+[2026-04-03T11:12:23.133071] GET /analyze status=405 len=31
+[2026-04-03T11:12:27.243770] GET /analyze status=405 len=31
+[2026-04-03T11:12:29.435143] Error polling /transactions: ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\'hattie-unbrushed-criminologically.ngrok-free.dev\', port=443): Max retries exceeded with url: /transactions (Caused by NewConnectionError("HTTPSConnection(host=\'hattie-unbrushed-criminologically.ngrok-free.dev\', port=443): Failed to establish a new connection: [WinError 10051] A socket operation was attempted to an unreachable network"))'))
+[2026-04-03T11:12:44.352176] GET /analyze status=503 len=2413
+[2026-04-03T11:12:47.476574] Error polling /transactions: HTTPError('404 Client Error: Not Found for url: https://hattie-unbrushed-criminologically.ngrok-free.dev/transactions')
+[2026-04-03T11:12:48.504485] GET /analyze status=404 len=2383
+[2026-04-03T11:12:52.302157] Error polling /transactions: HTTPError('404 Client Error: Not Found for url: https://hattie-unbrushed-criminologically.ngrok-free.dev/transactions')
+[2026-04-03T11:12:54.151747] GET /analyze status=405 len=31
+[2026-04-03T11:12:58.242616] New backend transaction ID observed: 37a0784c-85ca-4d40-b427-5eb117243be1
+[2026-04-03T11:13:00.988480] GET /analyze status=405 len=31
+[2026-04-03T11:13:08.724644] GET /analyze status=405 len=31
+[2026-04-03T11:13:13.017079] New backend transaction ID observed: e465c8c0-eebd-43c2-8f09-c06589157a3a
+[2026-04-03T11:13:13.019773] New backend transaction ID observed: c32c5a75-df93-42d9-b87e-a066a1fcd4b0
+[2026-04-03T11:13:16.392275] Error polling /analyze: ConnectionError(ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')))
+[2026-04-03T11:13:21.747744] New backend transaction ID observed: 70a8e889-101a-4fcc-9787-061c76a60b1a
+[2026-04-03T11:13:24.512016] GET /analyze status=405 len=31
+[2026-04-03T11:13:32.136656] GET /analyze status=405 len=31
+[2026-04-03T11:13:38.915914] GET /analyze status=405 len=31
+[2026-04-03T11:14:00.387998] Error polling /analyze: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /analyze (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:14:07.779170] GET /analyze status=405 len=31
+[2026-04-03T11:14:13.636862] GET /analyze status=405 len=31
+[2026-04-03T11:14:18.243460] GET /analyze status=405 len=31
+[2026-04-03T11:14:22.111504] GET /analyze status=405 len=31
+[2026-04-03T11:14:25.508761] GET /analyze status=405 len=31
+[2026-04-03T11:14:29.535479] GET /analyze status=405 len=31
+[2026-04-03T11:14:34.399170] GET /analyze status=405 len=31
+[2026-04-03T11:14:38.306270] GET /analyze status=405 len=31
+[2026-04-03T11:14:43.651221] GET /analyze status=405 len=31
+[2026-04-03T11:14:47.715272] GET /analyze status=405 len=31
+[2026-04-03T11:15:01.802118] GET /analyze status=405 len=31
+[2026-04-03T11:15:06.677361] GET /analyze status=405 len=31
+[2026-04-03T11:15:11.122130] GET /analyze status=405 len=31
+[2026-04-03T11:15:15.587162] GET /analyze status=405 len=31
+[2026-04-03T11:15:20.359839] GET /analyze status=405 len=31
+[2026-04-03T11:15:24.553724] GET /analyze status=405 len=31
+[2026-04-03T11:15:28.831776] GET /analyze status=405 len=31
+[2026-04-03T11:15:33.112401] GET /analyze status=405 len=31
+[2026-04-03T11:15:37.394125] GET /analyze status=405 len=31
+[2026-04-03T11:15:41.856673] GET /analyze status=405 len=31
+[2026-04-03T11:15:49.345838] GET /analyze status=405 len=31
+[2026-04-03T11:15:54.686090] GET /analyze status=405 len=31
+[2026-04-03T11:16:00.246256] GET /analyze status=405 len=31
+[2026-04-03T11:16:04.794591] GET /analyze status=405 len=31
+[2026-04-03T11:16:11.005755] GET /analyze status=405 len=31
+[2026-04-03T11:16:17.673693] GET /analyze status=405 len=31
+[2026-04-03T11:16:22.501860] GET /analyze status=405 len=31
+[2026-04-03T11:16:31.809519] Error polling /transactions: ReadTimeout(ReadTimeoutError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Read timed out. (read timeout=6)"))
+[2026-04-03T11:16:33.706230] GET /analyze status=405 len=31
+[2026-04-03T11:16:39.407690] GET /analyze status=405 len=31
+[2026-04-03T11:16:45.023644] GET /analyze status=405 len=31
+[2026-04-03T11:16:49.613596] GET /analyze status=405 len=31
+[2026-04-03T11:16:54.841746] GET /analyze status=405 len=31
+[2026-04-03T11:17:00.232726] GET /analyze status=405 len=31
+[2026-04-03T11:17:05.044104] GET /analyze status=405 len=31
+[2026-04-03T11:17:10.690688] GET /analyze status=405 len=31
+[2026-04-03T11:17:17.141125] GET /analyze status=405 len=31
+[2026-04-03T11:17:23.747639] GET /analyze status=405 len=31
+[2026-04-03T11:17:30.862417] GET /analyze status=405 len=31
+[2026-04-03T11:17:36.404038] GET /analyze status=405 len=31
+[2026-04-03T11:17:42.127719] GET /analyze status=405 len=31
+[2026-04-03T11:17:47.791886] GET /analyze status=405 len=31
+[2026-04-03T11:17:54.400382] Error polling /analyze: ConnectionError(ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')))
+[2026-04-03T11:17:59.808678] GET /analyze status=405 len=31
+[2026-04-03T11:18:03.393251] GET /analyze status=405 len=31
+[2026-04-03T11:18:06.798912] GET /analyze status=405 len=31
+[2026-04-03T11:18:11.501731] GET /analyze status=405 len=31
+[2026-04-03T11:18:18.379739] GET /analyze status=405 len=31
+[2026-04-03T11:18:23.005674] GET /analyze status=405 len=31
+[2026-04-03T11:18:26.927472] GET /analyze status=405 len=31
+[2026-04-03T11:18:30.847072] GET /analyze status=405 len=31
+[2026-04-03T11:18:35.740889] GET /analyze status=405 len=31
+[2026-04-03T11:18:40.142469] GET /analyze status=405 len=31
+[2026-04-03T11:18:44.278543] GET /analyze status=405 len=31
+[2026-04-03T11:18:48.211306] GET /analyze status=405 len=31
+[2026-04-03T11:18:52.471058] GET /analyze status=405 len=31
+[2026-04-03T11:18:56.357756] GET /analyze status=405 len=31
+[2026-04-03T11:19:02.365694] GET /analyze status=405 len=31
+[2026-04-03T11:19:10.317304] Error polling /transactions: ConnectionError(ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')))
+[2026-04-03T11:19:12.982148] GET /analyze status=405 len=31
+[2026-04-03T11:19:18.973959] GET /analyze status=405 len=31
+[2026-04-03T11:19:24.588381] GET /analyze status=405 len=31
+[2026-04-03T11:19:29.073476] Error polling /transactions: ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)))
+[2026-04-03T11:19:29.170358] Error polling /analyze: ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\'hattie-unbrushed-criminologically.ngrok-free.dev\', port=443): Max retries exceeded with url: /analyze (Caused by NameResolutionError("HTTPSConnection(host=\'hattie-unbrushed-criminologically.ngrok-free.dev\', port=443): Failed to resolve \'hattie-unbrushed-criminologically.ngrok-free.dev\' ([Errno 11004] getaddrinfo failed)"))'))
+[2026-04-03T11:19:38.113091] Error polling /transactions: ReadTimeout(ReadTimeoutError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Read timed out. (read timeout=6)"))
+[2026-04-03T11:19:39.262506] GET /analyze status=405 len=31
+[2026-04-03T11:19:48.190910] Error polling /transactions: ReadTimeout(ReadTimeoutError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Read timed out. (read timeout=6)"))
+[2026-04-03T11:19:49.403514] GET /analyze status=405 len=31
+[2026-04-03T11:19:54.004768] GET /analyze status=405 len=31
+[2026-04-03T11:19:58.260883] GET /analyze status=405 len=31
+[2026-04-03T11:20:04.654360] GET /analyze status=405 len=31
+[2026-04-03T11:20:09.821767] GET /analyze status=405 len=31
+[2026-04-03T11:20:14.182768] Error polling /transactions: ConnectionError(ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')))
+[2026-04-03T11:20:15.051160] GET /analyze status=405 len=31
+[2026-04-03T11:20:21.852379] GET /analyze status=405 len=31
+[2026-04-03T11:20:28.825159] Error polling /analyze: ConnectionError(ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')))
+[2026-04-03T11:20:33.795160] GET /analyze status=405 len=31
+[2026-04-03T11:20:38.613974] GET /analyze status=405 len=31
+[2026-04-03T11:20:38.618319] New DB row: 37a0784c-85ca-4d40-b427-5eb117243be1
+[2026-04-03T11:20:38.618814] New DB row: c32c5a75-df93-42d9-b87e-a066a1fcd4b0
+[2026-04-03T11:20:38.619468] New DB row: e465c8c0-eebd-43c2-8f09-c06589157a3a
+[2026-04-03T11:20:38.620041] New DB row: 70a8e889-101a-4fcc-9787-061c76a60b1a
+[2026-04-03T11:20:46.387158] GET /analyze status=405 len=31
+[2026-04-03T11:20:52.010494] GET /analyze status=405 len=31
+[2026-04-03T11:20:57.567023] GET /analyze status=405 len=31
+[2026-04-03T11:21:03.271524] GET /analyze status=405 len=31
+[2026-04-03T11:21:07.175049] Error polling /transactions: ConnectionError(ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')))
+[2026-04-03T11:21:08.897234] GET /analyze status=405 len=31
+[2026-04-03T11:21:15.663503] Error polling /analyze: ConnectionError(ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')))
+[2026-04-03T11:21:19.751551] GET /analyze status=405 len=31
+[2026-04-03T11:21:24.838155] GET /analyze status=405 len=31
+[2026-04-03T11:21:28.896037] GET /analyze status=405 len=31
+[2026-04-03T11:21:33.263832] GET /analyze status=405 len=31
+[2026-04-03T11:21:38.206671] GET /analyze status=405 len=31
+[2026-04-03T11:21:42.410018] GET /analyze status=405 len=31
+[2026-04-03T11:21:48.312852] GET /analyze status=405 len=31
+[2026-04-03T11:21:52.078157] GET /analyze status=405 len=31
+[2026-04-03T11:21:56.079448] GET /analyze status=405 len=31
+[2026-04-03T11:22:00.169916] GET /analyze status=405 len=31
+[2026-04-03T11:22:04.219020] GET /analyze status=405 len=31
+[2026-04-03T11:22:08.461419] GET /analyze status=405 len=31
+[2026-04-03T11:22:13.591538] GET /analyze status=405 len=31
+[2026-04-03T11:22:18.986181] GET /analyze status=405 len=31
+[2026-04-03T11:22:23.308107] GET /analyze status=405 len=31
+[2026-04-03T11:22:33.959820] Error polling /transactions: ReadTimeout(ReadTimeoutError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Read timed out. (read timeout=6)"))
+[2026-04-03T11:22:34.991382] GET /analyze status=405 len=31
+[2026-04-03T11:22:44.380418] Error polling /transactions: ReadTimeout(ReadTimeoutError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Read timed out. (read timeout=6)"))
+[2026-04-03T11:22:47.653002] GET /analyze status=503 len=2413
+[2026-04-03T11:22:51.467596] New backend transaction ID observed: e30412c3-6a75-40a7-b28d-868beaac3639
+[2026-04-03T11:22:53.271216] GET /analyze status=405 len=31
+[2026-04-03T11:22:58.435801] GET /analyze status=405 len=31
+[2026-04-03T11:23:03.230278] GET /analyze status=405 len=31
+[2026-04-03T11:23:03.255031] New DB row: e30412c3-6a75-40a7-b28d-868beaac3639
+[2026-04-03T11:23:08.404789] GET /analyze status=405 len=31
+[2026-04-03T11:23:14.792996] GET /analyze status=405 len=31
+[2026-04-03T11:23:20.758554] GET /analyze status=405 len=31
+[2026-04-03T11:23:27.184260] GET /analyze status=405 len=31
+[2026-04-03T11:23:34.064369] GET /analyze status=405 len=31
+[2026-04-03T11:23:39.674150] GET /analyze status=405 len=31
+[2026-04-03T11:23:44.777947] GET /analyze status=405 len=31
+[2026-04-03T11:23:50.336286] GET /analyze status=405 len=31
+[2026-04-03T11:23:55.760230] GET /analyze status=405 len=31
+[2026-04-03T11:24:01.404710] GET /analyze status=405 len=31
+[2026-04-03T11:24:07.140541] GET /analyze status=405 len=31
+[2026-04-03T11:24:13.279608] GET /analyze status=405 len=31
+[2026-04-03T11:24:19.272126] GET /analyze status=405 len=31
+[2026-04-03T11:24:24.831531] GET /analyze status=405 len=31
+[2026-04-03T11:24:30.690620] GET /analyze status=405 len=31
+[2026-04-03T11:24:36.554183] GET /analyze status=405 len=31
+[2026-04-03T11:24:43.296347] GET /analyze status=405 len=31
+[2026-04-03T11:24:50.580510] Error polling /transactions: ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)))
+[2026-04-03T11:24:54.226480] Error polling /analyze: ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)))
+[2026-04-03T11:25:04.991597] Error polling /transactions: ReadTimeout(ReadTimeoutError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Read timed out. (read timeout=6)"))
+[2026-04-03T11:25:06.422907] GET /analyze status=405 len=31
+[2026-04-03T11:25:15.895415] Error polling /transactions: ReadTimeout(ReadTimeoutError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Read timed out. (read timeout=6)"))
+[2026-04-03T11:25:17.549114] GET /analyze status=405 len=31
+[2026-04-03T11:25:17.555188] New DB row: 708c9d0b-09ab-4dbf-8830-02e243193736
+[2026-04-03T11:25:21.544002] New backend transaction ID observed: 708c9d0b-09ab-4dbf-8830-02e243193736
+[2026-04-03T11:25:22.906918] GET /analyze status=405 len=31
+[2026-04-03T11:25:28.736244] GET /analyze status=405 len=31
+[2026-04-03T11:25:35.187813] GET /analyze status=405 len=31
+[2026-04-03T11:25:40.101874] GET /analyze status=405 len=31
+[2026-04-03T11:25:45.586306] GET /analyze status=405 len=31
+[2026-04-03T11:25:50.858845] GET /analyze status=405 len=31
+[2026-04-03T11:25:56.914248] GET /analyze status=405 len=31
+[2026-04-03T11:26:02.730685] GET /analyze status=405 len=31
+[2026-04-03T11:26:08.067293] GET /analyze status=405 len=31
+[2026-04-03T11:26:13.612054] GET /analyze status=405 len=31
+[2026-04-03T11:26:19.050173] GET /analyze status=405 len=31
+[2026-04-03T11:26:24.124429] GET /analyze status=405 len=31
+[2026-04-03T11:26:29.829204] GET /analyze status=405 len=31
+[2026-04-03T11:26:36.649215] GET /analyze status=405 len=31
+[2026-04-03T11:26:41.948655] GET /analyze status=405 len=31
+[2026-04-03T11:26:47.489825] GET /analyze status=405 len=31
+[2026-04-03T11:26:53.429989] GET /analyze status=405 len=31
+[2026-04-03T11:26:58.857438] GET /analyze status=405 len=31
+[2026-04-03T11:27:04.067852] GET /analyze status=405 len=31
+[2026-04-03T11:27:09.555851] GET /analyze status=405 len=31
+[2026-04-03T11:27:17.388161] GET /analyze status=405 len=31
+[2026-04-03T11:27:23.643036] GET /analyze status=405 len=31
+[2026-04-03T11:27:30.628364] GET /analyze status=405 len=31
+[2026-04-03T11:27:37.957776] GET /analyze status=405 len=31
+[2026-04-03T11:27:43.827858] GET /analyze status=405 len=31
+[2026-04-03T11:27:49.544480] GET /analyze status=405 len=31
+[2026-04-03T11:27:55.990787] GET /analyze status=405 len=31
+[2026-04-03T11:28:04.069062] Error polling /analyze: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /analyze (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:28:12.138179] GET /analyze status=405 len=31
+[2026-04-03T11:28:17.634349] GET /analyze status=405 len=31
+[2026-04-03T11:28:23.327202] GET /analyze status=405 len=31
+[2026-04-03T11:28:28.847988] GET /analyze status=405 len=31
+[2026-04-03T11:28:33.373219] GET /analyze status=405 len=31
+[2026-04-03T11:28:38.009171] GET /analyze status=405 len=31
+[2026-04-03T11:28:42.183720] GET /analyze status=405 len=31
+[2026-04-03T11:28:46.265171] GET /analyze status=405 len=31
+[2026-04-03T11:28:50.567572] GET /analyze status=405 len=31
+[2026-04-03T11:28:55.177682] GET /analyze status=405 len=31
+[2026-04-03T11:28:59.665824] GET /analyze status=405 len=31
+[2026-04-03T11:29:20.539785] Error polling /analyze: ReadTimeout(ReadTimeoutError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Read timed out. (read timeout=6)"))
+[2026-04-03T11:29:24.317249] GET /analyze status=405 len=31
+[2026-04-03T11:29:28.327509] GET /analyze status=405 len=31
+[2026-04-03T11:29:33.329961] GET /analyze status=405 len=31
+[2026-04-03T11:29:38.377063] GET /analyze status=405 len=31
+[2026-04-03T11:29:42.771246] GET /analyze status=405 len=31
+[2026-04-03T11:29:46.859593] GET /analyze status=405 len=31
+[2026-04-03T11:29:50.764873] GET /analyze status=405 len=31
+[2026-04-03T11:29:54.949854] GET /analyze status=405 len=31
+[2026-04-03T11:29:58.739759] GET /analyze status=405 len=31
+[2026-04-03T11:30:03.552163] GET /analyze status=405 len=31
+[2026-04-03T11:30:07.430145] GET /analyze status=405 len=31
+[2026-04-03T11:30:11.285346] GET /analyze status=405 len=31
+[2026-04-03T11:30:15.006583] GET /analyze status=405 len=31
+[2026-04-03T11:30:18.709160] GET /analyze status=405 len=31
+[2026-04-03T11:30:22.667911] GET /analyze status=405 len=31
+[2026-04-03T11:30:26.838641] GET /analyze status=405 len=31
+[2026-04-03T11:30:30.785233] GET /analyze status=405 len=31
+[2026-04-03T11:30:35.795674] GET /analyze status=405 len=31
+[2026-04-03T11:30:41.731986] GET /analyze status=405 len=31
+[2026-04-03T11:30:45.904738] GET /analyze status=405 len=31
+[2026-04-03T11:30:49.721358] GET /analyze status=405 len=31
+[2026-04-03T11:30:53.689831] GET /analyze status=405 len=31
+[2026-04-03T11:30:57.916825] GET /analyze status=405 len=31
+[2026-04-03T11:31:02.336110] GET /analyze status=405 len=31
+[2026-04-03T11:31:06.434416] GET /analyze status=405 len=31
+[2026-04-03T11:31:10.579664] GET /analyze status=405 len=31
+[2026-04-03T11:31:14.623117] GET /analyze status=405 len=31
+[2026-04-03T11:31:19.397664] GET /analyze status=405 len=31
+[2026-04-03T11:31:23.617373] GET /analyze status=405 len=31
+[2026-04-03T11:31:28.225974] GET /analyze status=405 len=31
+[2026-04-03T11:31:33.162337] GET /analyze status=405 len=31
+[2026-04-03T11:31:38.319891] GET /analyze status=405 len=31
+[2026-04-03T11:31:43.482802] GET /analyze status=405 len=31
+[2026-04-03T11:31:48.198268] GET /analyze status=405 len=31
+[2026-04-03T11:31:52.905819] GET /analyze status=405 len=31
+[2026-04-03T11:31:58.298455] GET /analyze status=405 len=31
+[2026-04-03T11:32:04.442586] GET /analyze status=405 len=31
+[2026-04-03T11:32:11.214202] GET /analyze status=405 len=31
+[2026-04-03T11:32:16.537924] GET /analyze status=405 len=31
+[2026-04-03T11:32:22.454042] GET /analyze status=405 len=31
+[2026-04-03T11:32:26.494020] New backend transaction ID observed: 81d4182e-115a-4062-b202-4b864e35d211
+[2026-04-03T11:32:28.747901] GET /analyze status=405 len=31
+[2026-04-03T11:32:28.755416] New DB row: 81d4182e-115a-4062-b202-4b864e35d211
+[2026-04-03T11:32:35.040191] GET /analyze status=405 len=31
+[2026-04-03T11:32:41.655131] GET /analyze status=405 len=31
+[2026-04-03T11:32:46.662260] GET /analyze status=405 len=31
+[2026-04-03T11:32:51.566013] GET /analyze status=405 len=31
+[2026-04-03T11:32:56.198995] GET /analyze status=405 len=31
+[2026-04-03T11:33:00.704093] GET /analyze status=405 len=31
+[2026-04-03T11:33:06.021151] GET /analyze status=405 len=31
+[2026-04-03T11:33:10.870159] GET /analyze status=405 len=31
+[2026-04-03T11:33:15.544343] GET /analyze status=405 len=31
+[2026-04-03T11:33:21.175954] GET /analyze status=405 len=31
+[2026-04-03T11:33:26.502444] GET /analyze status=405 len=31
+[2026-04-03T11:33:31.431131] GET /analyze status=405 len=31
+[2026-04-03T11:33:34.995645] New backend transaction ID observed: 355ec769-5f63-4deb-9f2d-d3d94c55301d
+[2026-04-03T11:33:36.464541] GET /analyze status=405 len=31
+[2026-04-03T11:33:36.469966] New DB row: 355ec769-5f63-4deb-9f2d-d3d94c55301d
+[2026-04-03T11:33:41.450741] GET /analyze status=405 len=31
+[2026-04-03T11:33:46.564120] GET /analyze status=405 len=31
+[2026-04-03T11:33:51.487206] GET /analyze status=405 len=31
+[2026-04-03T11:33:56.520454] GET /analyze status=405 len=31
+[2026-04-03T11:34:02.033952] GET /analyze status=405 len=31
+[2026-04-03T11:34:07.174398] GET /analyze status=405 len=31
+[2026-04-03T11:34:13.187342] GET /analyze status=405 len=31
+[2026-04-03T11:34:19.345538] GET /analyze status=405 len=31
+[2026-04-03T11:34:25.085317] GET /analyze status=405 len=31
+[2026-04-03T11:34:31.034952] GET /analyze status=405 len=31
+[2026-04-03T11:34:37.896141] GET /analyze status=405 len=31
+[2026-04-03T11:34:44.055270] GET /analyze status=405 len=31
+[2026-04-03T11:34:49.686159] GET /analyze status=405 len=31
+[2026-04-03T11:34:55.430572] GET /analyze status=405 len=31
+[2026-04-03T11:35:00.960952] GET /analyze status=405 len=31
+[2026-04-03T11:35:06.281013] GET /analyze status=405 len=31
+[2026-04-03T11:35:11.400616] GET /analyze status=405 len=31
+[2026-04-03T11:35:17.234341] GET /analyze status=405 len=31
+[2026-04-03T11:35:22.554108] GET /analyze status=405 len=31
+[2026-04-03T11:35:28.047281] GET /analyze status=405 len=31
+[2026-04-03T11:35:33.283200] GET /analyze status=405 len=31
+[2026-04-03T11:35:38.755477] GET /analyze status=405 len=31
+[2026-04-03T11:35:44.160732] GET /analyze status=405 len=31
+[2026-04-03T11:35:49.601504] GET /analyze status=405 len=31
+[2026-04-03T11:35:54.928306] GET /analyze status=405 len=31
+[2026-04-03T11:36:00.444167] GET /analyze status=405 len=31
+[2026-04-03T11:36:06.013569] GET /analyze status=405 len=31
+[2026-04-03T11:36:12.433144] GET /analyze status=405 len=31
+[2026-04-03T11:36:16.312407] Error polling /transactions: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /transactions (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:36:18.254429] Error polling /analyze: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /analyze (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:36:22.414638] Error polling /transactions: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /transactions (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:36:24.813382] Error polling /analyze: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /analyze (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:36:29.321143] Error polling /transactions: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /transactions (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:36:31.881122] Error polling /analyze: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /analyze (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:36:36.159487] Error polling /transactions: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /transactions (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:36:38.337331] Error polling /analyze: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /analyze (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:36:42.322658] Error polling /transactions: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /transactions (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:36:44.473421] Error polling /analyze: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /analyze (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:36:48.262508] Error polling /transactions: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /transactions (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:36:50.208883] Error polling /analyze: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /analyze (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:36:54.100284] Error polling /transactions: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /transactions (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:36:55.942655] Error polling /analyze: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /analyze (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:36:59.705739] Error polling /transactions: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /transactions (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:37:01.574665] Error polling /analyze: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /analyze (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:37:05.326082] Error polling /transactions: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /transactions (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:37:07.206217] Error polling /analyze: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /analyze (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:37:11.200340] Error polling /transactions: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /transactions (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:37:13.621573] GET /analyze status=405 len=31
+[2026-04-03T11:37:22.238239] GET /analyze status=405 len=31
+[2026-04-03T11:37:29.024360] GET /analyze status=405 len=31
+[2026-04-03T11:37:34.966902] GET /analyze status=405 len=31
+[2026-04-03T11:37:41.455832] GET /analyze status=405 len=31
+[2026-04-03T11:37:49.716160] GET /analyze status=405 len=31
+[2026-04-03T11:37:52.496698] Error polling /transactions: ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\'hattie-unbrushed-criminologically.ngrok-free.dev\', port=443): Max retries exceeded with url: /transactions (Caused by NewConnectionError("HTTPSConnection(host=\'hattie-unbrushed-criminologically.ngrok-free.dev\', port=443): Failed to establish a new connection: [WinError 10051] A socket operation was attempted to an unreachable network"))'))
+[2026-04-03T11:37:52.917861] Error polling /analyze: ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\'hattie-unbrushed-criminologically.ngrok-free.dev\', port=443): Max retries exceeded with url: /analyze (Caused by NameResolutionError("HTTPSConnection(host=\'hattie-unbrushed-criminologically.ngrok-free.dev\', port=443): Failed to resolve \'hattie-unbrushed-criminologically.ngrok-free.dev\' ([Errno 11001] getaddrinfo failed)"))'))
+[2026-04-03T11:38:05.061176] Error polling /transactions: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /transactions (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:38:09.842067] Error polling /analyze: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /analyze (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:38:15.535037] Error polling /transactions: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /transactions (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:38:19.040333] Error polling /analyze: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /analyze (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:38:25.851382] New backend transaction ID observed: 5d38a9e3-5ab6-4f55-a43b-88975e6f11c8
+[2026-04-03T11:38:29.637137] Error polling /analyze: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /analyze (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:38:38.358339] GET /analyze status=405 len=31
+[2026-04-03T11:38:46.285588] GET /analyze status=405 len=31
+[2026-04-03T11:38:55.448941] GET /analyze status=405 len=31
+[2026-04-03T11:39:03.840686] GET /analyze status=405 len=31
+[2026-04-03T11:39:12.762665] GET /analyze status=405 len=31
+[2026-04-03T11:39:18.630248] Error polling /transactions: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /transactions (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:39:22.038267] Error polling /analyze: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /analyze (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:39:30.614906] GET /analyze status=405 len=31
+[2026-04-03T11:39:39.740290] GET /analyze status=405 len=31
+[2026-04-03T11:39:48.199469] GET /analyze status=405 len=31
+[2026-04-03T11:39:56.620569] GET /analyze status=405 len=31
+[2026-04-03T11:40:05.336234] Error polling /analyze: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /analyze (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:40:10.850781] Error polling /transactions: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /transactions (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:40:14.275057] Error polling /analyze: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /analyze (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:40:20.746561] GET /analyze status=405 len=31
+[2026-04-03T11:40:27.553773] GET /analyze status=405 len=31
+[2026-04-03T11:40:34.421243] GET /analyze status=405 len=31
+[2026-04-03T11:40:40.464071] GET /analyze status=405 len=31
+[2026-04-03T11:40:45.373244] GET /analyze status=405 len=31
+[2026-04-03T11:40:50.490365] GET /analyze status=405 len=31
+[2026-04-03T11:40:57.791539] GET /analyze status=405 len=31
+[2026-04-03T11:41:02.709306] GET /analyze status=405 len=31
+[2026-04-03T11:41:07.712853] GET /analyze status=405 len=31
+[2026-04-03T11:41:12.587621] GET /analyze status=405 len=31
+[2026-04-03T11:41:18.054903] GET /analyze status=405 len=31
+[2026-04-03T11:41:18.060173] New DB row: 5d38a9e3-5ab6-4f55-a43b-88975e6f11c8
+[2026-04-03T11:41:23.101297] GET /analyze status=405 len=31
+[2026-04-03T11:41:28.618092] GET /analyze status=405 len=31
+[2026-04-03T11:41:34.244029] GET /analyze status=405 len=31
+[2026-04-03T11:41:39.258621] GET /analyze status=405 len=31
+[2026-04-03T11:41:44.284236] GET /analyze status=405 len=31
+[2026-04-03T11:41:49.362409] GET /analyze status=405 len=31
+[2026-04-03T11:41:54.318055] GET /analyze status=405 len=31
+[2026-04-03T11:41:59.341664] GET /analyze status=405 len=31
+[2026-04-03T11:42:04.265258] GET /analyze status=405 len=31
+[2026-04-03T11:42:09.181053] GET /analyze status=405 len=31
+[2026-04-03T11:42:14.199075] GET /analyze status=405 len=31
+[2026-04-03T11:42:19.001764] GET /analyze status=405 len=31
+[2026-04-03T11:42:23.862226] GET /analyze status=405 len=31
+[2026-04-03T11:42:28.688726] GET /analyze status=405 len=31
+[2026-04-03T11:42:34.151232] GET /analyze status=405 len=31
+[2026-04-03T11:42:39.270521] GET /analyze status=405 len=31
+[2026-04-03T11:42:44.457483] GET /analyze status=405 len=31
+[2026-04-03T11:42:49.977146] GET /analyze status=405 len=31
+[2026-04-03T11:42:55.044579] GET /analyze status=405 len=31
+[2026-04-03T11:43:00.061741] GET /analyze status=405 len=31
+[2026-04-03T11:43:04.981620] GET /analyze status=405 len=31
+[2026-04-03T11:43:09.987881] GET /analyze status=405 len=31
+[2026-04-03T11:43:15.560748] GET /analyze status=405 len=31
+[2026-04-03T11:43:20.733888] GET /analyze status=405 len=31
+[2026-04-03T11:43:25.553303] GET /analyze status=405 len=31
+[2026-04-03T11:43:30.780496] GET /analyze status=405 len=31
+[2026-04-03T11:43:38.030550] GET /analyze status=405 len=31
+[2026-04-03T11:43:43.598079] GET /analyze status=405 len=31
+[2026-04-03T11:43:50.704549] GET /analyze status=405 len=31
+[2026-04-03T11:43:56.158254] GET /analyze status=405 len=31
+[2026-04-03T11:44:01.472940] GET /analyze status=405 len=31
+[2026-04-03T11:44:07.561455] GET /analyze status=405 len=31
+[2026-04-03T11:44:13.262566] GET /analyze status=405 len=31
+[2026-04-03T11:44:19.018704] GET /analyze status=405 len=31
+[2026-04-03T11:44:24.646756] GET /analyze status=405 len=31
+[2026-04-03T11:44:30.383134] GET /analyze status=405 len=31
+[2026-04-03T11:44:38.386473] GET /analyze status=405 len=31
+[2026-04-03T11:44:43.690678] GET /analyze status=405 len=31
+[2026-04-03T11:44:51.132938] GET /analyze status=405 len=31
+[2026-04-03T11:44:56.595331] GET /analyze status=405 len=31
+[2026-04-03T11:45:01.884102] GET /analyze status=405 len=31
+[2026-04-03T11:45:07.042686] GET /analyze status=405 len=31
+[2026-04-03T11:45:13.903337] GET /analyze status=405 len=31
+[2026-04-03T11:45:19.780973] GET /analyze status=405 len=31
+[2026-04-03T11:45:26.542138] GET /analyze status=405 len=31
+[2026-04-03T11:45:32.743027] GET /analyze status=405 len=31
+[2026-04-03T11:45:40.119599] GET /analyze status=405 len=31
+[2026-04-03T11:45:46.942660] GET /analyze status=405 len=31
+[2026-04-03T11:45:53.636793] GET /analyze status=405 len=31
+[2026-04-03T11:46:01.174127] GET /analyze status=405 len=31
+[2026-04-03T11:46:08.223782] GET /analyze status=405 len=31
+[2026-04-03T11:46:15.039978] GET /analyze status=405 len=31
+[2026-04-03T11:46:20.711327] Error polling /transactions: ConnectionError(ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')))
+[2026-04-03T11:46:23.539815] GET /analyze status=405 len=31
+[2026-04-03T11:46:30.297275] GET /analyze status=405 len=31
+[2026-04-03T11:46:38.720440] Error polling /analyze: ConnectionError(ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')))
+[2026-04-03T11:46:45.954503] GET /analyze status=405 len=31
+[2026-04-03T11:46:52.813293] GET /analyze status=405 len=31
+[2026-04-03T11:46:59.520766] GET /analyze status=405 len=31
+[2026-04-03T11:47:06.442204] GET /analyze status=405 len=31
+[2026-04-03T11:47:14.666575] GET /analyze status=405 len=31
+[2026-04-03T11:47:24.555197] GET /analyze status=405 len=31
+[2026-04-03T11:47:31.266307] GET /analyze status=405 len=31
+[2026-04-03T11:47:37.925170] GET /analyze status=405 len=31
+[2026-04-03T11:47:44.671289] GET /analyze status=405 len=31
+[2026-04-03T11:47:54.296686] GET /analyze status=405 len=31
+[2026-04-03T11:48:00.758192] GET /analyze status=405 len=31
+[2026-04-03T11:48:07.865616] GET /analyze status=405 len=31
+[2026-04-03T11:48:15.293182] GET /analyze status=405 len=31
+[2026-04-03T11:48:22.457039] GET /analyze status=405 len=31
+[2026-04-03T11:48:30.208233] GET /analyze status=405 len=31
+[2026-04-03T11:48:37.862186] GET /analyze status=405 len=31
+[2026-04-03T11:48:45.375185] GET /analyze status=405 len=31
+[2026-04-03T11:49:23.161817] Error polling /transactions: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /transactions (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T11:49:25.614443] GET /analyze status=405 len=31
+[2026-04-03T11:49:31.787563] GET /analyze status=405 len=31
+[2026-04-03T11:49:40.269042] GET /analyze status=405 len=31
+[2026-04-03T11:49:53.628033] GET /analyze status=405 len=31
+[2026-04-03T11:50:02.212197] Error polling /analyze: ConnectionError(ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')))
+[2026-04-03T11:50:10.957815] GET /analyze status=405 len=31
+[2026-04-03T11:50:21.384350] GET /analyze status=405 len=31
+[2026-04-03T11:50:29.392715] GET /analyze status=405 len=31
+[2026-04-03T11:50:33.516649] Error polling /transactions: ConnectionError(ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')))
+[2026-04-03T11:50:36.542693] GET /analyze status=405 len=31
+[2026-04-03T11:50:45.534992] GET /analyze status=405 len=31
+[2026-04-03T11:50:50.928629] GET /analyze status=405 len=31
+[2026-04-03T11:50:56.409175] GET /analyze status=405 len=31
+[2026-04-03T11:51:01.610314] GET /analyze status=405 len=31
+[2026-04-03T11:51:07.011574] GET /analyze status=405 len=31
+[2026-04-03T11:51:12.075686] GET /analyze status=405 len=31
+[2026-04-03T11:51:16.858937] GET /analyze status=405 len=31
+[2026-04-03T11:51:21.970594] GET /analyze status=405 len=31
+[2026-04-03T11:51:28.014191] GET /analyze status=405 len=31
+[2026-04-03T11:51:33.125414] GET /analyze status=405 len=31
+[2026-04-03T11:51:38.556631] GET /analyze status=405 len=31
+[2026-04-03T11:51:43.548889] GET /analyze status=405 len=31
+[2026-04-03T11:51:48.048300] GET /analyze status=405 len=31
+[2026-04-03T11:51:53.594268] GET /analyze status=405 len=31
+[2026-04-03T11:51:58.310220] GET /analyze status=405 len=31
+[2026-04-03T11:52:03.603185] GET /analyze status=405 len=31
+[2026-04-03T11:52:08.275559] GET /analyze status=405 len=31
+[2026-04-03T11:52:13.246849] GET /analyze status=405 len=31
+[2026-04-03T11:52:17.855214] GET /analyze status=405 len=31
+[2026-04-03T11:52:22.275559] GET /analyze status=405 len=31
+[2026-04-03T11:52:26.880146] GET /analyze status=405 len=31
+[2026-04-03T11:52:31.806083] GET /analyze status=405 len=31
+[2026-04-03T11:52:37.016506] GET /analyze status=405 len=31
+[2026-04-03T11:52:42.348292] GET /analyze status=405 len=31
+[2026-04-03T11:52:47.219600] GET /analyze status=405 len=31
+[2026-04-03T11:52:52.776065] GET /analyze status=405 len=31
+[2026-04-03T11:52:57.399063] GET /analyze status=405 len=31
+[2026-04-03T11:53:03.540731] GET /analyze status=405 len=31
+[2026-04-03T11:53:08.968835] GET /analyze status=405 len=31
+[2026-04-03T11:53:13.663700] GET /analyze status=405 len=31
+[2026-04-03T11:53:18.551435] GET /analyze status=405 len=31
+[2026-04-03T11:53:23.262335] GET /analyze status=405 len=31
+[2026-04-03T11:53:28.016576] GET /analyze status=405 len=31
+[2026-04-03T11:53:32.793867] GET /analyze status=405 len=31
+[2026-04-03T11:53:37.540719] GET /analyze status=405 len=31
+[2026-04-03T11:53:42.336103] GET /analyze status=405 len=31
+[2026-04-03T11:53:47.065989] GET /analyze status=405 len=31
+[2026-04-03T11:53:51.758745] GET /analyze status=405 len=31
+[2026-04-03T11:53:56.472516] GET /analyze status=405 len=31
+[2026-04-03T11:54:01.090313] GET /analyze status=405 len=31
+[2026-04-03T11:54:05.890679] GET /analyze status=405 len=31
+[2026-04-03T11:54:10.803925] Error polling /transactions: ConnectionError(ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')))
+[2026-04-03T11:54:12.138177] GET /analyze status=405 len=31
+[2026-04-03T11:54:16.952678] GET /analyze status=405 len=31
+[2026-04-03T11:54:22.173125] GET /analyze status=405 len=31
+[2026-04-03T11:54:27.090828] GET /analyze status=405 len=31
+[2026-04-03T11:54:31.797112] GET /analyze status=405 len=31
+[2026-04-03T11:54:36.610020] GET /analyze status=405 len=31
+[2026-04-03T11:54:41.440683] GET /analyze status=405 len=31
+[2026-04-03T11:54:46.338451] GET /analyze status=405 len=31
+[2026-04-03T11:54:50.862079] GET /analyze status=405 len=31
+[2026-04-03T11:54:55.576946] GET /analyze status=405 len=31
+[2026-04-03T11:55:03.928439] Error polling /analyze: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /analyze (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T16:32:31.595577] Error polling /analyze: ConnectionError(ProtocolError('Connection aborted.', ConnectionAbortedError(10053, 'An established connection was aborted by the software in your host machine', None, 10053, None)))
+[2026-04-03T16:32:33.608408] Error polling /transactions: ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\'hattie-unbrushed-criminologically.ngrok-free.dev\', port=443): Max retries exceeded with url: /transactions (Caused by NameResolutionError("HTTPSConnection(host=\'hattie-unbrushed-criminologically.ngrok-free.dev\', port=443): Failed to resolve \'hattie-unbrushed-criminologically.ngrok-free.dev\' ([Errno 11001] getaddrinfo failed)"))'))
+[2026-04-03T16:32:33.610551] Error polling /analyze: ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\'hattie-unbrushed-criminologically.ngrok-free.dev\', port=443): Max retries exceeded with url: /analyze (Caused by NameResolutionError("HTTPSConnection(host=\'hattie-unbrushed-criminologically.ngrok-free.dev\', port=443): Failed to resolve \'hattie-unbrushed-criminologically.ngrok-free.dev\' ([Errno 11001] getaddrinfo failed)"))'))
+[2026-04-03T16:32:35.617939] Error polling /transactions: ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\'hattie-unbrushed-criminologically.ngrok-free.dev\', port=443): Max retries exceeded with url: /transactions (Caused by NameResolutionError("HTTPSConnection(host=\'hattie-unbrushed-criminologically.ngrok-free.dev\', port=443): Failed to resolve \'hattie-unbrushed-criminologically.ngrok-free.dev\' ([Errno 11001] getaddrinfo failed)"))'))
+[2026-04-03T16:32:35.620182] Error polling /analyze: ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\'hattie-unbrushed-criminologically.ngrok-free.dev\', port=443): Max retries exceeded with url: /analyze (Caused by NameResolutionError("HTTPSConnection(host=\'hattie-unbrushed-criminologically.ngrok-free.dev\', port=443): Failed to resolve \'hattie-unbrushed-criminologically.ngrok-free.dev\' ([Errno 11001] getaddrinfo failed)"))'))
+[2026-04-03T16:32:37.630437] Error polling /transactions: ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\'hattie-unbrushed-criminologically.ngrok-free.dev\', port=443): Max retries exceeded with url: /transactions (Caused by NameResolutionError("HTTPSConnection(host=\'hattie-unbrushed-criminologically.ngrok-free.dev\', port=443): Failed to resolve \'hattie-unbrushed-criminologically.ngrok-free.dev\' ([Errno 11001] getaddrinfo failed)"))'))
+[2026-04-03T16:32:37.634549] Error polling /analyze: ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\'hattie-unbrushed-criminologically.ngrok-free.dev\', port=443): Max retries exceeded with url: /analyze (Caused by NameResolutionError("HTTPSConnection(host=\'hattie-unbrushed-criminologically.ngrok-free.dev\', port=443): Failed to resolve \'hattie-unbrushed-criminologically.ngrok-free.dev\' ([Errno 11001] getaddrinfo failed)"))'))
+[2026-04-03T16:32:39.673620] Error polling /transactions: ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\'hattie-unbrushed-criminologically.ngrok-free.dev\', port=443): Max retries exceeded with url: /transactions (Caused by NameResolutionError("HTTPSConnection(host=\'hattie-unbrushed-criminologically.ngrok-free.dev\', port=443): Failed to resolve \'hattie-unbrushed-criminologically.ngrok-free.dev\' ([Errno 11001] getaddrinfo failed)"))'))
+[2026-04-03T16:32:39.676404] Error polling /analyze: ConnectionError(MaxRetryError('HTTPSConnectionPool(host=\'hattie-unbrushed-criminologically.ngrok-free.dev\', port=443): Max retries exceeded with url: /analyze (Caused by NameResolutionError("HTTPSConnection(host=\'hattie-unbrushed-criminologically.ngrok-free.dev\', port=443): Failed to resolve \'hattie-unbrushed-criminologically.ngrok-free.dev\' ([Errno 11001] getaddrinfo failed)"))'))
+[2026-04-03T16:32:44.244169] Error polling /transactions: HTTPError('404 Client Error: Not Found for url: https://hattie-unbrushed-criminologically.ngrok-free.dev/transactions')
+[2026-04-03T16:32:45.475189] GET /analyze status=404 len=2383
+[2026-04-03T16:32:50.200665] GET /analyze status=405 len=31
+[2026-04-03T16:32:56.021967] GET /analyze status=405 len=31
+[2026-04-03T16:33:00.732726] GET /analyze status=405 len=31
+[2026-04-03T16:33:05.344886] GET /analyze status=405 len=31
+[2026-04-03T16:33:10.120177] GET /analyze status=405 len=31
+[2026-04-03T16:33:14.965066] GET /analyze status=405 len=31
+[2026-04-03T16:33:19.999241] GET /analyze status=405 len=31
+[2026-04-03T16:33:24.610680] GET /analyze status=405 len=31
+[2026-04-03T16:33:29.711025] GET /analyze status=405 len=31
+[2026-04-03T16:33:34.573125] GET /analyze status=405 len=31
+[2026-04-03T16:33:39.577179] GET /analyze status=405 len=31
+[2026-04-03T16:33:44.458575] GET /analyze status=405 len=31
+[2026-04-03T16:33:49.783448] GET /analyze status=405 len=31
+[2026-04-03T16:33:55.311664] GET /analyze status=405 len=31
+[2026-04-03T16:34:01.254373] GET /analyze status=405 len=31
+[2026-04-03T16:34:06.789347] GET /analyze status=405 len=31
+[2026-04-03T16:34:12.618891] GET /analyze status=405 len=31
+[2026-04-03T16:34:18.717859] GET /analyze status=405 len=31
+[2026-04-03T16:34:24.805046] GET /analyze status=405 len=31
+[2026-04-03T16:34:31.061349] GET /analyze status=405 len=31
+[2026-04-03T16:34:36.581646] GET /analyze status=405 len=31
+[2026-04-03T16:34:42.007261] GET /analyze status=405 len=31
+[2026-04-03T16:34:47.852634] GET /analyze status=405 len=31
+[2026-04-03T16:34:53.479784] GET /analyze status=405 len=31
+[2026-04-03T16:34:59.350697] GET /analyze status=405 len=31
+[2026-04-03T16:35:04.848030] GET /analyze status=405 len=31
+[2026-04-03T16:35:10.171701] GET /analyze status=405 len=31
+[2026-04-03T16:35:15.803910] GET /analyze status=405 len=31
+[2026-04-03T16:35:21.849132] GET /analyze status=405 len=31
+[2026-04-03T16:35:27.988251] GET /analyze status=405 len=31
+[2026-04-03T16:35:34.451806] GET /analyze status=405 len=31
+[2026-04-03T16:35:40.590804] GET /analyze status=405 len=31
+[2026-04-03T16:35:46.011676] GET /analyze status=405 len=31
+[2026-04-03T16:35:52.874629] GET /analyze status=405 len=31
+[2026-04-03T16:36:00.455226] GET /analyze status=405 len=31
+[2026-04-03T16:36:07.827746] GET /analyze status=405 len=31
+[2026-04-03T16:36:15.197603] GET /analyze status=405 len=31
+[2026-04-03T16:36:22.162580] GET /analyze status=405 len=31
+[2026-04-03T16:36:30.288952] Error polling /analyze: SSLError(MaxRetryError("HTTPSConnectionPool(host='hattie-unbrushed-criminologically.ngrok-free.dev', port=443): Max retries exceeded with url: /analyze (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1077)')))"))
+[2026-04-03T16:36:37.829383] GET /analyze status=405 len=31
+[2026-04-03T16:36:43.666925] GET /analyze status=405 len=31
+[2026-04-03T16:36:50.017053] GET /analyze status=405 len=31
+[2026-04-03T16:36:55.848222] GET /analyze status=405 len=31
+[2026-04-03T16:37:02.161775] GET /analyze status=405 len=31

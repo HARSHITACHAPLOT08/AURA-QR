@@ -12,6 +12,8 @@ import numpy as np
 import plotly.graph_objects as go
 import plotly.express as px
 from datetime import datetime
+import requests
+from streamlit_autorefresh import st_autorefresh
 
 st.set_page_config(page_title="AURA — Fraud Detection", page_icon="🛡️",
                    layout="wide", initial_sidebar_state="expanded")
@@ -26,6 +28,9 @@ importlib.reload(login)
 importlib.reload(chatbot)
 from login import render_login
 from chatbot import render_chatbot
+import qr_scanner
+importlib.reload(qr_scanner)
+from qr_scanner import render_qr_scanner
 
 if 'logged_in' not in st.session_state: st.session_state.logged_in = False
 if 'theme' not in st.session_state: st.session_state.theme = 'dark'
@@ -114,6 +119,129 @@ def random_transaction(src="stream"):
                 transaction_id=f"STR-{uuid.uuid4().hex[:8].upper()}")
 
 
+# ── Backend API Integration ─────────────────────────────────
+# No hardcoded URL to avoid expired ngrok tunnels. Configure via Sidebar.
+NGROK_DEFAULT = ""
+
+def fetch_transactions(base_url: str | None = None):
+    """Fetch latest transactions from FastAPI backend.
+
+    Returns a list of transaction dicts, or None if the backend is unreachable.
+    """
+    # Use session state configured URL as priority
+    base = base_url or st.session_state.get('backend_url') or NGROK_DEFAULT
+    if not base or base == "":
+        return None
+
+    # Small in-memory rate-limit to avoid repeated blocking network calls during rapid reruns
+    now = time.time()
+    last_time = st.session_state.get("_last_fetch_time", 0)
+    if now - last_time < 1.0 and "_last_fetch_result" in st.session_state:
+        return st.session_state.get("_last_fetch_result")
+
+    # Try a small set of endpoints with a slightly larger per-request timeout
+    # Prefer `/history` so that transactions saved to the DB (e.g., from mobile POSTs)
+    # are immediately visible in the Live Transactions view.
+    endpoints = ['/history', '/stream-next', '/transactions']
+    txs = None
+    sess = requests.Session()
+    for ep in endpoints:
+        url = base.rstrip('/') + ep
+        try:
+            resp = sess.get(url, timeout=2.0)
+            resp.raise_for_status()
+            data = resp.json()
+            if isinstance(data, list):
+                txs = data
+            elif isinstance(data, dict) and ("transactions" in data or "items" in data):
+                txs = data.get("transactions") or data.get("items") or []
+            elif isinstance(data, dict):
+                txs = [data]
+            else:
+                txs = []
+            break
+        except Exception:
+            txs = None
+            continue
+
+    # cache short-lived result
+    st.session_state["_last_fetch_time"] = time.time()
+    st.session_state["_last_fetch_result"] = txs
+
+    if txs is None:
+        # Fallback to local synthetic generator if backend is dead
+        try:
+            from ml.generate_synthetic import generate_transactions as gen_tx
+            df_syn = gen_tx(n_samples=20)
+            txs = df_syn.to_dict(orient="records")
+            for t in txs:
+                t["source"] = "synthetic (fallback)"
+            print("[STREAMLIT] Backend unreachable. Falling back to synthetic transaction generation.")
+        except Exception as e:
+            print(f"[STREAMLIT] Fallback generation failed: {e}")
+            return None
+
+    # Normalize minimal fields into a flat schema that matches our DB model
+    try:
+        norm = []
+        for t in txs:
+            tt = {}
+            # Handle nested backend schema: {id, created_at, transaction: {...}, result: {...}}
+            if isinstance(t, dict) and ("transaction" in t or "result" in t or "created_at" in t):
+                tt["transaction_id"] = t.get("id") or t.get("transaction_id") or f"EXT-{uuid.uuid4().hex[:8].upper()}"
+                tt["timestamp"] = t.get("created_at") or t.get("timestamp") or datetime.utcnow().isoformat()
+                tr = t.get("transaction", {}) or {}
+                res = t.get("result", {}) or {}
+
+                tt["amount"] = tr.get("amount") or tr.get("amt") or 0.0
+                tt["hour"] = tr.get("hour")
+                tt["day_of_week"] = tr.get("day_of_week")
+                tt["merchant_cat"] = tr.get("merchant_cat")
+                tt["location_risk"] = tr.get("location_risk") or tr.get("locationRisk") or 0.0
+                tt["device_trust"] = tr.get("device_trust") or tr.get("deviceTrust") or 0.0
+                tt["past_fraud_ct"] = tr.get("past_fraud_ct") or tr.get("pastFraudCount") or 0
+                tt["velocity_1h"] = tr.get("txn_per_hour") or tr.get("velocity_1h") or 0
+                tt["dist_home_km"] = tr.get("dist_home_km") or tr.get("distHomeKm") or 0.0
+                tt["card_age_days"] = tr.get("card_age_days") or tr.get("cardAgeDays") or None
+                tt["is_online"] = tr.get("is_online") if "is_online" in tr else False
+
+                # result fields
+                tt["fraud_probability"] = res.get("risk_score") if res.get("risk_score") is not None else res.get("fraud_probability", res.get("probability", 0.0))
+                tt["is_fraud"] = bool(res.get("is_fraud") if res.get("is_fraud") is not None else res.get("isFraud", False))
+                # Derive risk level from score if not provided
+                try:
+                    score = float(tt.get("fraud_probability") or 0.0)
+                except Exception:
+                    score = 0.0
+                tt["risk_level"] = res.get("risk_level") or ("High" if score >= 0.75 else "Medium" if score >= 0.35 else "Low")
+                tt["anomaly_score"] = res.get("anomaly_score") or None
+                tt["top_features"] = json.loads(res.get("top_features") or "{}") if res else None
+                tt["source"] = "remote"
+            else:
+                # Fallback: already flat dict
+                tt = dict(t)
+
+            # Ensure some minimal required keys exist
+            if "transaction_id" not in tt:
+                tt["transaction_id"] = tt.get("id") or f"EXT-{uuid.uuid4().hex[:8].upper()}"
+            if "timestamp" not in tt:
+                tt["timestamp"] = datetime.utcnow().isoformat()
+            if "amount" not in tt:
+                tt.setdefault("amount", 0.0)
+            if "fraud_probability" not in tt:
+                tt.setdefault("fraud_probability", tt.get("probability", 0.0))
+            if "is_fraud" not in tt:
+                tt.setdefault("is_fraud", bool(tt.get("is_fraud", tt.get("fraud", False))))
+            if "risk_level" not in tt:
+                tt.setdefault("risk_level", tt.get("risk_level", "Low"))
+
+            norm.append(tt)
+        return norm
+    except Exception as e:
+        print(f"[STREAMLIT] Normalization error: {e}")
+        return None
+
+
 # ════════════════════════════════════════════════════════════════════
 # SIDEBAR
 # ════════════════════════════════════════════════════════════════════
@@ -128,7 +256,7 @@ with st.sidebar:
 
     page = st.radio(
         "Navigate",
-        ["🏠 Dashboard", "🔍 Live Detection", "📊 Analytics", "🔐 Cyber Awareness"],
+        ["🏠 Dashboard", "🔍 Live Detection", "📡 Live Transactions", "📊 Analytics", "🔐 Cyber Awareness", "📷 QR Scanner", "🧾 KYC", "🔓 Logout"],
         label_visibility="collapsed",
     )
 
@@ -153,11 +281,35 @@ with st.sidebar:
         st.caption("Run `python ml/train_model.py` first.")
 
     st.markdown('<hr><div class="sidebar-footer">AURA v1.0 &nbsp;·&nbsp; Hackathon Edition<br><span style="color:#64748b">© 2025 AI Financial Guardian</span></div>', unsafe_allow_html=True)
+    
+    # --- Configurable Backend URL Section ---
+    st.markdown('<div style="font-size:0.85rem; font-weight:700; color:#E2E8F0; margin-top:20px; margin-bottom:8px;">🔧 Backend Configuration</div>', unsafe_allow_html=True)
+    
+    input_url = st.sidebar.text_input(
+        "API Endpoint URL",
+        value=st.session_state.get('backend_url', NGROK_DEFAULT),
+        placeholder="e.g. https://...ngrok-free.dev",
+        key="backend_url_input",
+        label_visibility="collapsed"
+    )
+    
+    # Store in session state
+    st.session_state['backend_url'] = input_url.rstrip("/")
+    
+    # Connection status indicator
+    if st.session_state['backend_url']:
+        try:
+            h_resp = requests.get(f"{st.session_state['backend_url']}/health", timeout=2)
+            if h_resp.status_code == 200:
+                st.markdown('<div style="background:rgba(16,185,129,0.1); border:1px solid #10b981; color:#10b981; border-radius:6px; padding:4px 10px; font-size:0.75rem; font-weight:800; text-align:center;">🟢 API CONNECTED</div>', unsafe_allow_html=True)
+            else:
+                st.markdown('<div style="background:rgba(239,68,68,0.1); border:1px solid #ef4444; color:#ef4444; border-radius:6px; padding:4px 10px; font-size:0.75rem; font-weight:800; text-align:center;">🔴 API ERR (404)</div>', unsafe_allow_html=True)
+        except Exception:
+            st.markdown('<div style="background:rgba(239,68,68,0.1); border:1px solid #ef4444; color:#ef4444; border-radius:6px; padding:4px 10px; font-size:0.75rem; font-weight:800; text-align:center;">🔴 API OFFLINE</div>', unsafe_allow_html=True)
+    else:
+        st.markdown('<div style="background:rgba(148,163,184,0.1); border:1px solid #94a3b8; color:#94a3b8; border-radius:6px; padding:4px 10px; font-size:0.75rem; font-weight:800; text-align:center;">⚪ URL NOT SET</div>', unsafe_allow_html=True)
+
     theme_choice = st.toggle("🌙 Dark Mode", value=(st.session_state.theme == "dark"))
-    new_theme = "dark" if theme_choice else "light"
-    if new_theme != st.session_state.theme:
-        st.session_state.theme = new_theme
-        st.rerun()
 
 
 
@@ -174,6 +326,7 @@ _page_meta = {
 _htitle, _hsub = _page_meta.get(page, ("AURA", ""))
 def render_top_navbar(title, subtitle):
     username = st.session_state.get("username", "System Admin")
+    alert_count = st.session_state.get('alert_count', 0)
     html = f"""<div class="top-navbar">
 <div class="nav-left">
 <h1 class="nav-title">{title}</h1>
@@ -192,7 +345,7 @@ def render_top_navbar(title, subtitle):
 </div>
 <div class="nav-icon-btn notification-container" title="Notifications">
 <span>🔔</span>
-<div class="notification-badge">3</div>
+<div class="notification-badge">{alert_count}</div>
 <!-- Dropdown Tray -->
 <div class="notification-dropdown">
     <div class="notif-header">Recent Alerts</div>
@@ -231,6 +384,75 @@ st.markdown('''
 if page == "🏠 Dashboard":
     stats   = get_stats_fn()
     history = get_history(200)
+    # Fetch remote transactions from FastAPI and merge in front (real-time)
+    remote_tx = fetch_transactions()
+    if remote_tx is None or not st.session_state.get('backend_url'):
+        st.warning("⚠️ Backend unreachable. Displaying local synthetic transaction history for UX stability.")
+        try:
+            df_syn = pd.read_csv("data/synthetic_transactions.csv").tail(50)
+            remote_tx = df_syn.to_dict(orient="records")
+            for t in remote_tx:
+                t["source"] = "synthetic (file)"
+                if "label" in t: t["is_fraud"] = bool(t["label"])
+                if "label" in t and "fraud_probability" not in t: t["fraud_probability"] = 0.9 if t["label"] else 0.1
+        except Exception:
+            remote_tx = []
+    
+    # UI verification: show count of fetched transactions
+    if remote_tx:
+        st.markdown(f"<div style='color:#94a3b8;margin-bottom:8px'>Fetched {len(remote_tx)} data nodes</div>", unsafe_allow_html=True)
+
+    # Initialize known tx id set on first load
+    if 'known_tx_ids' not in st.session_state:
+        st.session_state.known_tx_ids = [h.get('transaction_id') for h in history] if history else []
+
+    new_ids = []
+    if remote_tx:
+        # detect newly seen ids
+        for tx in remote_tx:
+            tid = tx.get('transaction_id')
+            if tid and tid not in st.session_state.known_tx_ids:
+                new_ids.append(tid)
+                st.session_state.known_tx_ids.append(tid)
+
+    # Persist remote transactions (avoid duplicates) and prepend to history
+    if 'saved_remote_ids' not in st.session_state:
+        st.session_state.saved_remote_ids = []
+    high_risk_alerts = []
+    persisted = []
+    if remote_tx:
+        for tx in remote_tx:
+            tid = tx.get('transaction_id')
+            if tid and tid not in st.session_state.saved_remote_ids:
+                try:
+                    # persist into local DB so data survives refresh
+                    save_tx(tx)
+                    st.session_state.saved_remote_ids.append(tid)
+                    persisted.append(tx)
+                    # detect high-risk fraud for popup alert
+                    prob = float(tx.get('fraud_probability', tx.get('probability', 0.0)))
+                    is_fraud = bool(tx.get('is_fraud', tx.get('fraud', False)))
+                    risk_level = tx.get('risk_level', 'Low')
+                    if is_fraud and (prob >= 0.75 or risk_level == 'High'):
+                        high_risk_alerts.append(tx)
+                except Exception:
+                    # if save fails, continue without crashing
+                    pass
+
+        # Prepend persisted remote transactions so external ones appear first
+        if persisted:
+            history = persisted + history
+
+    # store new ids so UI can animate / alert
+    st.session_state.new_tx_ids = new_ids
+    st.session_state.high_risk_alerts = high_risk_alerts
+
+    # Non-blocking auto-refresh every 2 seconds for real-time dashboard updates
+    try:
+        from streamlit_autorefresh import st_autorefresh
+        st_autorefresh(interval=2000, key="dashboard_autorefresh")
+    except Exception:
+        pass
 
     # Custom Custom High-Impact KPI Matrix
     st.markdown(f"""<div class="kpi-wrapper">
@@ -299,6 +521,8 @@ if page == "🏠 Dashboard":
         else:
             st.markdown('<div style="height:200px;display:flex;align-items:center;justify-content:center;color:#334155;font-size:.85rem">No data yet</div>', unsafe_allow_html=True)
 
+
+
     st.markdown("<div style='height:4px'></div>", unsafe_allow_html=True)
 
     # Alerts + Table side by side
@@ -341,8 +565,50 @@ if page == "🏠 Dashboard":
             df_d = df_d.rename(columns={"transaction_id":"ID","timestamp":"Time","risk_level":"Risk","source":"Source"})
             st.dataframe(df_d[["ID","Time","Amount","Risk","Probability","Fraud","Source"]],
                          use_container_width=True, hide_index=True, height=300)
+            # Non-intrusive report button: shows selected tx details + analytics snapshot
+            if st.button("View Report", key="view_report_btn"):
+                ids = [h.get("transaction_id") for h in history] if history else []
+                sel = st.selectbox("Select Transaction", ids, index=0 if ids else None)
+                selected = next((h for h in history if h.get("transaction_id") == sel), None)
+                st.markdown("<div style='padding:10px 12px;border-radius:8px;background:rgba(10,15,28,0.6);'>", unsafe_allow_html=True)
+                # Basic header info
+                uname = st.session_state.get('username', 'System Admin')
+                if selected:
+                    st.markdown(f"**User:** {uname}  &nbsp;&nbsp; **Transaction ID:** {selected.get('transaction_id')}  &nbsp;&nbsp; **Amount:** ₹{selected.get('amount',0):,.2f}")
+                else:
+                    st.markdown(f"**User:** {uname}  &nbsp;&nbsp; No transaction selected")
+
+                # Compact analytics snapshot (reuse Analytics logic)
+                hist = history or []
+                if hist:
+                    df_a = pd.DataFrame(hist)
+                    tot = len(df_a)
+                    fraud_tot = int(df_a[df_a['is_fraud'] == 1].shape[0]) if 'is_fraud' in df_a.columns else 0
+                    f_rate = (fraud_tot / tot) * 100 if tot > 0 else 0
+                    avg_risk = df_a['fraud_probability'].mean() * 100 if 'fraud_probability' in df_a.columns else 0
+
+                    k1,k2,k3 = st.columns(3)
+                    k1.markdown(f"**Total Txns**\n\n### {tot:,}")
+                    k2.markdown(f"**Neural Flags**\n\n### {fraud_tot:,}")
+                    k3.markdown(f"**Threat Rate**\n\n### {f_rate:.2f}%")
+
+                    # Small charts
+                    c1,c2 = st.columns(2)
+                    with c1:
+                        if 'risk_level' in df_a.columns and 'amount' in df_a.columns:
+                            fig_box = px.box(df_a, x='risk_level', y='amount', color='risk_level', points='outliers')
+                            st.plotly_chart(fig_box, use_container_width=True, config={'displayModeBar':False})
+                    with c2:
+                        if 'risk_level' in df_a.columns:
+                            rc = df_a['risk_level'].value_counts().reset_index()
+                            rc.columns = ['level','count']
+                            fig_p = go.Figure(go.Pie(labels=rc['level'], values=rc['count'], hole=.6))
+                            st.plotly_chart(fig_p, use_container_width=True, config={'displayModeBar':False})
+                st.markdown('</div>', unsafe_allow_html=True)
         else:
             st.info("No transactions yet.")
+
+    # dashboard uses non-blocking st_autorefresh earlier; no blocking rerun here
 
 # ════════════════════════════════════════════════════════════════════
 # LIVE DETECTION
@@ -352,7 +618,100 @@ elif page == "🔍 Live Detection":
         st.error("⚠️ Models not loaded — run `python ml/train_model.py` first.")
         st.stop()
 
+    # Poll deployed backend for remote transactions (non-UI, data-only) and auto-refresh
+    st_autorefresh(interval=2000, key="live_det_autorefresh")
+    remote_tx = fetch_transactions()
+    if remote_tx is None:
+        remote_tx = []
+
+    # Persist remote transactions without altering UI layout
+    if 'saved_remote_ids' not in st.session_state:
+        st.session_state.saved_remote_ids = []
+    # track last-seen transaction ids to avoid duplicate alerts
+    if 'last_seen_tx_ids' not in st.session_state:
+        st.session_state.last_seen_tx_ids = set()
+    # alert queue for stacked overlays (list of dicts: id, amt, merchant, score, ts, played)
+    if 'alert_queue' not in st.session_state:
+        st.session_state.alert_queue = []
+    if remote_tx:
+        for tx in remote_tx:
+            tid = tx.get('transaction_id')
+            if not tid:
+                continue
+            if tid and tid not in st.session_state.saved_remote_ids:
+                try:
+                    save_tx(tx)
+                    st.session_state.saved_remote_ids.append(tid)
+                    # also append to in-memory transactions list so Live Detection can reflect recent activity
+                    st.session_state.transactions.append(tx)
+
+                    # Detect new fraud entries and trigger alert only once
+                    is_fraud_flag = bool(tx.get('is_fraud')) or (tx.get('fraud_probability', 0) >= 0.75)
+                    if is_fraud_flag and tid not in st.session_state.last_seen_tx_ids:
+                        # mark as seen so we don't alert again
+                        st.session_state.last_seen_tx_ids.add(tid)
+
+                        # prepare alert details
+                        amt = tx.get('amount', 0.0)
+                        merchant = tx.get('merchant') or tx.get('merchant_name') or tx.get('merchant_cat') or 'Unknown'
+                        score = (tx.get('fraud_probability') or 0.0) * 100
+
+                        # append to alert queue (avoid duplicates)
+                        st.session_state.alert_queue.append({
+                            'id': tid,
+                            'amount': amt,
+                            'merchant': merchant,
+                            'score': score,
+                            'ts': time.time(),
+                            'played': False,
+                        })
+
+                        # Prevention tips - show as a styled warning block on the page (does not change layout)
+                        tips = [
+                            "Avoid high-value transfers to unknown receivers",
+                            "Verify receiver before sending money",
+                            "Suspicious location detected — proceed carefully",
+                        ]
+                        st.warning('\n'.join([f"• {t}" for t in tips]))
+                except Exception:
+                    pass
+
     tab_m, tab_s = st.tabs(["✍️  Manual Input", "⚡  Auto Stream"])
+
+    # Render stacked alert overlays from the alert_queue (non-blocking, positioned over UI)
+    try:
+        # cleanup expired alerts (older than ~6 seconds)
+        now = time.time()
+        st.session_state.alert_queue = [a for a in st.session_state.alert_queue if now - a['ts'] < 6]
+
+        if st.session_state.alert_queue:
+            # build stacked HTML with offset for each alert
+            wrapper = ['<div style="position:fixed;right:24px;top:60px;z-index:9999;pointer-events:none">']
+            for idx, a in enumerate(st.session_state.alert_queue):
+                top_px =  idx * 92
+                # include audio tag only once per alert (when not played yet)
+                audio_html = ''
+                if not a.get('played'):
+                    audio_html = '<audio autoplay><source src="https://www.soundjay.com/buttons/beep-01a.mp3" type="audio/mpeg"></audio>'
+                    a['played'] = True
+
+                alert_div = f"""
+<div style='position:relative; margin-top:{top_px}px; pointer-events:auto;'>
+  <div style='min-width:320px;padding:12px 16px;border-radius:10px;background:linear-gradient(90deg,#ef4444,#7c3aed);color:white;box-shadow:0 8px 24px rgba(0,0,0,0.45);font-family:Inter, sans-serif'>
+    <div style='font-weight:800;font-size:1rem;margin-bottom:6px'>🚨 Fraud Detected!</div>
+    <div style='font-size:0.9rem;margin-bottom:4px'>Amount: ₹{a['amount']}</div>
+    <div style='font-size:0.9rem;margin-bottom:4px'>Receiver: {a['merchant']}</div>
+    <div style='font-size:0.9rem'>Risk Score: {a['score']:.1f}%</div>
+  </div>
+  {audio_html}
+</div>
+"""
+                wrapper.append(alert_div)
+            wrapper.append('</div>')
+            wrapper.append('<style>@keyframes fadeOut {0%{opacity:1;} 80%{opacity:1;} 100%{opacity:0;display:none;}}</style>')
+            st.markdown('\n'.join(wrapper), unsafe_allow_html=True)
+    except Exception:
+        pass
 
     with tab_m:
         st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
@@ -549,6 +908,97 @@ elif page == "🔍 Live Detection":
 # ════════════════════════════════════════════════════════════════════
 # ANALYTICS
 # ════════════════════════════════════════════════════════════════════
+elif page == "📡 Live Transactions":
+    # Live Transactions page: fetch /transactions and show amount, receiver, risk, and fraud status
+    try:
+        from streamlit_autorefresh import st_autorefresh
+        st_autorefresh(interval=2000, key="live_tx_autorefresh")
+    except Exception:
+        pass
+
+    remote_tx = fetch_transactions()
+    if remote_tx is None:
+        st.warning("⚠️ Backend unreachable. Displaying local synthetic transaction history.")
+        try:
+            df_syn = pd.read_csv("data/synthetic_transactions.csv").tail(100)
+            remote_tx = df_syn.to_dict(orient="records")
+            for t in remote_tx:
+                t["source"] = "synthetic (file)"
+                if "label" in t: t["is_fraud"] = bool(t["label"])
+                if "risk_level" not in t: 
+                    t["risk_level"] = "High" if t.get("label",0) else "Low"
+        except Exception:
+            remote_tx = []
+
+    # Persist remote transactions (avoid duplicates)
+    if 'saved_remote_ids' not in st.session_state:
+        st.session_state.saved_remote_ids = []
+    persisted = []
+    for tx in remote_tx:
+        tid = tx.get('transaction_id')
+        if tid and tid not in st.session_state.saved_remote_ids:
+            try:
+                save_tx(tx)
+                st.session_state.saved_remote_ids.append(tid)
+                persisted.append(tx)
+            except Exception:
+                pass
+
+    # Display table
+    st.markdown('<div class="card-title">📡 Live Transactions</div>', unsafe_allow_html=True)
+
+    # --- Mobile transaction indicator: show when a new mobile POST is present (auto-hide) ---
+    try:
+        mobile_ids = [t.get('transaction_id') for t in (remote_tx or []) if (t.get('source') or '').lower() == 'mobile']
+    except Exception:
+        mobile_ids = []
+
+    # Store seen mobile tx ids with timestamp so banner auto-hides after few seconds
+    if 'mobile_seen_time' not in st.session_state:
+        st.session_state.mobile_seen_time = {}
+
+    # Add newly observed mobile ids with current timestamp
+    now_ts = time.time()
+    for mid in mobile_ids:
+        if mid not in st.session_state.mobile_seen_time:
+            st.session_state.mobile_seen_time[mid] = now_ts
+
+    # Remove old seen ids older than 8 seconds
+    expire_after = 8.0
+    for k, v in list(st.session_state.mobile_seen_time.items()):
+        if now_ts - v > expire_after:
+            del st.session_state.mobile_seen_time[k]
+
+    # If there are any recent mobile ids, show a transient banner
+    if st.session_state.mobile_seen_time:
+        count_new = len(st.session_state.mobile_seen_time)
+        st.markdown(f"<div id='mobile-banner' style='padding:10px;border-radius:10px;background:linear-gradient(90deg,#7c3aed22,#06b6d422);border:1px solid rgba(124,58,237,0.12);color:#E6E6FA;margin-bottom:8px;animation:fadeOut 8s linear;'>📱 <strong>New mobile transaction received</strong> — {count_new} new</div>\n<style>@keyframes fadeOut {{ 0% {{ opacity:1 }} 75% {{ opacity:1 }} 100% {{ opacity:0 }} }}</style>", unsafe_allow_html=True)
+    if remote_tx:
+        rows = []
+        for t in remote_tx:
+            amt = t.get('amount') or (t.get('transaction',{}) or {}).get('amount') or 0.0
+            receiver = t.get('merchant') or (t.get('transaction',{}) or {}).get('merchant') or t.get('merchant_cat')
+            score = t.get('fraud_probability') or t.get('result',{}).get('risk_score') if isinstance(t.get('result',{}), dict) else t.get('fraud_probability', 0.0)
+            is_f = t.get('is_fraud') if 'is_fraud' in t else bool(t.get('result',{}).get('is_fraud')) if isinstance(t.get('result',{}), dict) else False
+            rows.append({
+                'Amount': f"₹{amt:,.2f}",
+                'Receiver': receiver,
+                'Risk Score': f"{(score or 0.0)*100:.1f}%",
+                'Fraud': '🚨 Fraud' if is_f else '✅ Safe',
+                'ID': t.get('transaction_id')
+            })
+        df_live = pd.DataFrame(rows)
+        st.dataframe(df_live, use_container_width=True, hide_index=True, height=450)
+    else:
+        st.info("No live transactions available.")
+
+    # After showing Live Transactions, fall through to Analytics if user selected that previously
+    # (we intentionally return here to avoid executing Analytics block)
+    st.stop()
+
+elif page == "📷 QR Scanner":
+    render_qr_scanner()
+
 elif page == "📊 Analytics":
     st.markdown('''
     <style>
@@ -567,6 +1017,20 @@ elif page == "📊 Analytics":
     ''', unsafe_allow_html=True)
     
     history = get_history(1000)
+    if not history:
+        st.warning("📊 No historical data found in database. Loading synthetic dataset for visualization.")
+        try:
+            df_syn = pd.read_csv("data/synthetic_transactions.csv")
+            # Map labels to human readable fields
+            df_syn["is_fraud"] = df_syn["label"].astype(bool)
+            df_syn["fraud_probability"] = df_syn["label"].apply(lambda x: 0.95 if x else 0.05)
+            df_syn["risk_level"] = df_syn["label"].apply(lambda x: "High" if x else "Low")
+            if "timestamp" not in df_syn.columns:
+                df_syn["timestamp"] = datetime.utcnow().isoformat()
+            history = df_syn.to_dict(orient="records")
+        except Exception:
+            history = []
+
     if not history:
         st.markdown('<div style="text-align:center;padding:100px;color:#FFFFFF;font-size:1.5rem;font-weight:700;text-shadow:0 0 15px currentColor;">📊 Connect Neural Network in Live Detection to begin streaming data...</div>', unsafe_allow_html=True)
     else:
@@ -848,6 +1312,31 @@ elif page == "🔐 Cyber Awareness":
                 </div>
             </div>
             ''', unsafe_allow_html=True)
+
+# ── QR Scanner Page ────────────────────────────────────────────────
+if page == "📷 QR Scanner":
+    try:
+        render_qr_scanner()
+    except Exception as e:
+        st.error(f"Failed to load QR Scanner: {e}")
+
+# ── KYC / Logout Pages (new)
+elif page == "🧾 KYC":
+    try:
+        import kyc
+        importlib.reload(kyc)
+        from kyc import render_kyc
+        render_kyc()
+    except Exception:
+        st.error("Failed to load KYC page.")
+elif page == "🔓 Logout":
+    try:
+        import logout
+        importlib.reload(logout)
+        from logout import render_logout
+        render_logout()
+    except Exception:
+        st.error("Failed to load Logout page.")
 
 # ── Global UI Components ────────────────────────────────────────────
 render_chatbot()

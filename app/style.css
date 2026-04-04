@@ -52,6 +52,9 @@
   100% { transform: translateY(0px) scale(1); }
 }
 
+/* New transaction entry animation */
+/* UI animations and card styles for live stream removed to preserve original theme */
+
 @keyframes pulseButton {
   0% { box-shadow: 0 0 10px rgba(56, 189, 248, 0.5); }
   50% { box-shadow: 0 0 15px rgba(124, 58, 237, 0.4), 0 0 20px rgba(56, 189, 248, 0.3); transform: scale(1.01); }
@@ -199,7 +202,18 @@ html, body, [class*="css"] {
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     letter-spacing: -0.5px; margin: 0;
 }
-.nav-subtitle { font-size: 0.8rem; color: #94A3B8; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+.nav-subtitle {
+    font-size: 0.78rem;
+    color: #B8D4E8;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 600px;
+    margin-top: 2px;
+}
 
 /* Center - Search */
 .nav-search-container { position: relative; width: 380px; }
