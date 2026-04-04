@@ -123,7 +123,7 @@ def random_transaction(src="stream"):
 # No hardcoded URL to avoid expired ngrok tunnels. Configure via Sidebar or Streamlit Secrets.
 NGROK_DEFAULT = "https://hattie-unbrushed-criminologically.ngrok-free.dev"
 # Default headers to skip the ngrok browser warning interceptor
-NGROK_HEADERS = {"ngrok-skip-browser-warning": "69420"}
+NGROK_HEADERS = {"ngrok-skip-browser-warning": "true"}
 
 def fetch_transactions(base_url: str | None = None):
     """Fetch latest transactions from FastAPI backend.
@@ -156,7 +156,7 @@ def fetch_transactions(base_url: str | None = None):
     for ep in endpoints:
         url = base.rstrip('/') + ep
         try:
-            resp = sess.get(url, timeout=2.0, headers=NGROK_HEADERS)
+            resp = sess.get(url, timeout=5.0, headers=NGROK_HEADERS)
             resp.raise_for_status()
             try:
                 data = resp.json()
@@ -320,7 +320,8 @@ with st.sidebar:
     is_online = False
     if st.session_state['backend_url']:
         try:
-            h_resp = requests.get(f"{st.session_state['backend_url']}/health", timeout=1.5, headers=NGROK_HEADERS)
+            # Increased timeout for global cloud-to-local connectivity
+            h_resp = requests.get(f"{st.session_state['backend_url']}/health", timeout=5.0, headers=NGROK_HEADERS)
             if h_resp.status_code == 200:
                 is_online = True
                 st.markdown('<div style="background:rgba(16,185,129,0.1); border:1px solid #10b981; color:#10b981; border-radius:6px; padding:4px 10px; font-size:0.75rem; font-weight:800; text-align:center;">🟢 API CONNECTED</div>', unsafe_allow_html=True)
@@ -408,10 +409,10 @@ if not st.session_state.get('_backend_online', False):
         <div style="font-size:24px;">⚠</div>
         <div>
             <div style="font-weight:700; color:#f59e0b; font-size:1.05rem;">Backend Unreachable</div>
-            <div style="color:#d1d5db; font-size:0.85rem; margin-top:2px;">
+            <div style="color:#d1d5db; font-size:0.85rem; margin-top:2px; line-height:1.4;">
                 The AURA API is currently offline. System has automatically shifted to <strong>Synthetic Isolation Mode</strong>. 
                 {f"<br><span style='color:#4FC3F7'>💡 Tip: ngrok warning detected. </span><a href='{st.session_state.get('backend_url', NGROK_DEFAULT)}' target='_blank' style='color:#4FC3F7; font-weight:bold;'>Click here to bypass warning</a>" if st.session_state.get('_ngrok_warning') else ""}
-                Please update the <span style="color:#f59e0b; font-weight:600;">Backend Configuration</span> in the sidebar to resume live monitoring.
+                <br>Please update the <strong style="color:#f59e0b;">Backend Configuration</strong> in the sidebar to resume live monitoring.
             </div>
         </div>
     </div>
