@@ -3,12 +3,12 @@
 <div align="center">
 
 ```
-    ██████╗  █████╗ ██╗   ██╗██████╗  █████╗
-   ██╔══██╗██╔══██╗██║   ██║██╔══██╗██╔══██╗
-   ███████║██║  ╚═╝██║   ██║██████╔╝███████║
-   ██╔══██║██║  ██╗██║   ██║██╔══██╗██╔══██║
-   ██║  ██║╚█████╔╝╚██████╔╝██║  ██║██║  ██║
-   ╚═╝  ╚═╝ ╚════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+    ██████╗ ██╗   ██╗██████╗  █████╗
+   ██╔══██╗ ██║   ██║██╔══██╗██╔══██╗
+   ███████║ ██║   ██║██████╔╝███████║
+   ██╔══██║ ██║   ██║██╔══██╗██╔══██║
+   ██║  ██║ ╚██████╔╝██║  ██║██║  ██║
+   ╚═╝  ╚═╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 ```
 
 **AI-Powered Real-Time Fraud Detection & Financial Guardian System**
@@ -87,16 +87,11 @@ This will:
 streamlit run app/main.py
 ```
 
-Open http://localhost:8501 in your browser.
-
 ### 4. (Optional) Start the FastAPI Backend
 
 ```bash
 uvicorn backend.api:app --reload --port 8000
 ```
-
-API docs at http://localhost:8000/docs
-
 ---
 
 ## 🧠 ML Pipeline
